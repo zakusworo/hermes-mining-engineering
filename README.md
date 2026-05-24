@@ -206,6 +206,35 @@ PYTHONPATH=src python3 -m pytest tests/ -v
 | 14 | Mine Closure Water Balance | — (empirical) | Closure planning, hydrology |
 | 15 | Pre-Feasibility Study (NPV) | — (financial) | Cash flow, sensitivity |
 
+## Illustrated Outputs
+
+All 15 exercises produce runnable Python scripts with sample outputs. Figures are generated via `scripts/generate_mining_figures.py` (requires `matplotlib`).
+
+| # | Figure | Description | Key Trend |
+|---|--------|-------------|-----------|
+| 1 | `01_rock_mass_gsi_strength.png` | Hoek-Brown σ_cm vs GSI for mi=15,25,35 | Rock mass strength increases exponentially with GSI; higher mi = stronger rock |
+| 2 | `02_ventilation_psychrometric.png` | Enthalpy vs dry-bulb T at RH=40,60,80,95% | Higher humidity at same T → much higher enthalpy; heat stress risk visible |
+| 3 | `03_slurry_density_concentration.png` | Slurry density vs Cw for Cu, Fe, Au ore | Density increases with solids and particle density; gold ore heaviest |
+| 4 | `04_blast_vibration_distance.png` | PPV decay with distance for 25,80,200 kg/delay | PPV drops 10× over 100→1000 m; larger charges exceed residential limit |
+| 5 | `05_integrated_dashboard.png` | 6-panel dashboard: rock, vent, slurry, dewater, slope, blast | All subsystems visualized together for mine design overview |
+| 6 | `06_groundwater_inflow_drawdown.png` | Inflow vs drawdown (Theim equation) | Linear relationship: deeper drawdown → proportional inflow increase |
+| 7 | `07_rock_comparison_bar.png` | Bar chart: Granite vs Shale (E, c, φ, σ_cm) | Granite ~3× stronger and stiffer than shale; support needs differ |
+| 8 | `08_pump_system_curve.png` | System curve + pump curve intersection | Operating point where pump meets system; VSD shifts pump curve |
+| 9 | `09_slope_fos_ru.png` | FOS vs pore pressure ratio ru=0→50% | FOS declines linearly with groundwater; failure zone shaded below FOS=1.0 |
+| 10 | `10_bench_cross_section.png` | Bench geometry: face, berm, overall slope | Visual inter-ramp vs overall slope; catch bench capacity geometry |
+| 11 | `11_blast_fragmentation_curve.png` | Cumulative passing vs fragment size | Finer fragmentation (higher PF) shifts curve left → better digging rate |
+| 12 | `12_subsidence_profile.png` | Gaussian subsidence profile over longwall panel | Maximum subsidence ~3.15 m; influence zone spans ±2× panel half-width |
+| 13 | `13_tailings_cross_section.png` | Dam cross-section: upstream, crest, downstream | Upstream 3H:1V gentler than downstream 2.5H:1V; overall stability geometry |
+| 14 | `14_closure_water_balance.png` | Horizontal bar: inflow vs outflow components | Net negative balance (evaporation > rainfall) → pit lake may not fill |
+| 15 | `15_feasibility_cash_flow.png` | Annual cash flow bar chart (5-year mine life) | Year 0 = -$85M capex; Years 1-4 positive; NPV positive at $1950/oz Au |
+
+Generate all figures:
+
+```bash
+pip install matplotlib
+python3 scripts/generate_mining_figures.py
+```
+
 ## Research Sources
 
 `research/` directory contains crawled standards pages:
