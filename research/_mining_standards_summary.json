@@ -1,0 +1,77 @@
+{
+  "sme_handbook": {
+    "url": "https://www.smenet.org/",
+    "size": 110024,
+    "note": "Society for Mining, Metallurgy & Exploration \u2014 SME Handbook"
+  },
+  "isrm_standards": {
+    "url": "https://www.isrm.net/gca/index.php?id=131",
+    "size": 65,
+    "note": "International Society for Rock Mechanics \u2014 Suggested Methods"
+  },
+  "astm_mining": {
+    "url": "https://www.astm.org/standards/mining-applications-standards.html",
+    "size": 243796,
+    "note": "ASTM Mining Applications Standards"
+  },
+  "niosh_mining": {
+    "url": "https://www.cdc.gov/niosh/mining/default.html",
+    "size": 20905,
+    "note": "NIOSH Mining Safety and Health Research"
+  },
+  "msha_regulations": {
+    "url": "https://www.msha.gov/regulations/standards",
+    "size": 89257,
+    "note": "MSHA Standards & Regulations"
+  },
+  "mcpherson_ventilation": {
+    "url": "https://en.wikipedia.org/wiki/Mine_ventilation",
+    "size": 102069,
+    "note": "Mine Ventilation \u2014 Subsurface Ventilation Engineering (McPherson)"
+  },
+  "hartman_mining": {
+    "url": "https://en.wikipedia.org/wiki/Introductory_Mining_Engineering",
+    "size": 49137,
+    "note": "Hartman & Mutmansky \u2014 Introductory Mining Engineering"
+  },
+  "hoek_brown": {
+    "url": "https://en.wikipedia.org/wiki/Hoek%E2%80%93Brown_failure_criterion",
+    "size": 94540,
+    "note": "Hoek-Brown Failure Criterion for Rock Mass"
+  },
+  "iso_mining": {
+    "url": "https://www.iso.org/committee/5130488/x/catalogue/p/1/u/1/w/0/d/0",
+    "size": 5941,
+    "note": "ISO/TC 82 \u2014 Mining"
+  },
+  "underground_methods": {
+    "url": "https://en.wikipedia.org/wiki/Underground_mining_(hard_rock)",
+    "size": 155013,
+    "note": "Underground Hard Rock Mining Methods"
+  },
+  "slope_stability": {
+    "url": "https://en.wikipedia.org/wiki/Slope_stability",
+    "size": 193314,
+    "note": "Slope Stability in Open Pit Mining"
+  },
+  "dewatering_engineering": {
+    "url": "https://www.smenet.org/technical-areas/mining-and-processing/",
+    "size": 61356,
+    "note": "SME Mining & Processing Technical Papers"
+  },
+  "tailings_dam": {
+    "url": "https://en.wikipedia.org/wiki/Tailings_dam",
+    "size": 137605,
+    "note": "Tailings Dam Engineering"
+  },
+  "usgs_critical_minerals": {
+    "url": "https://www.usgs.gov/news/national-news-release/us-geological-survey-releases-2022-list-critical-minerals",
+    "size": 104252,
+    "note": "USGS Critical Minerals List 2022"
+  },
+  "acarp_ventilation": {
+    "url": "https://www.acarp.com.au/",
+    "size": 36980,
+    "note": "ACARP \u2014 Australian Mine Ventilation Research"
+  }
+}
