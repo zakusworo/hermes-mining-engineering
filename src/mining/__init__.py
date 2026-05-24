@@ -11,5 +11,7 @@ from . import rock_mechanics
 from . import ventilation
 from . import slurry
 from . import dewatering
+from . import slope_stability
+from . import blasting
 
 __version__ = "0.1.0"
