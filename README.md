@@ -1,84 +1,105 @@
 # Hermes Mining Engineering
 
-Geothermal-engineering toolbox extended for mining applications.
-The [pygeotoolbox-mcp](https://github.com/zakusworo/pygeotoolbox-mcp) IAPWS
-models (water, steam, brine, humid air) are directly applicable to mine
-ventilation, dewatering, critical-mineral extraction, and tailings water
-management.
+Thermodynamic and hydraulic tools for mining engineering drawn from
+[pygeotoolbox-mcp](https://github.com/zakusworo/pygeotoolbox-mcp) plus
+mining-specific empirical correlations.
 
-## Why This Works
+**IMPORTANT DISTINCTION**
 
-Mining and geothermal engineering share **the same thermodynamic
-foundation**: water/steam phase behavior, brine chemistry, heat transfer,
-and fluid transport.  Both fields need IAPWS-IF97 and its supplementary
-documents.  pygeotoolbox already implements 11 IAPWS releases — the
-exact physics used in mine engineering but rarely packaged openly.
+The [IAPWS](https://iapws.org) standards standardize **water and steam**
+properties only. Mining engineering deals predominantly with **rock,
+soil, slurry, and ore** — none of which are covered by IAPWS.
+However, whenever water, steam, humid air, or brine appear in a mining
+problem (dewatering, ventilation, tailings, critical-mineral brines),
+the existing IAPWS formulations in pygeotoolbox apply directly and
+exactly.
 
-## Direct Module Mapping
+## Why Partial Overlap Works
 
-| pygeotoolbox module | Mining use case |
-|---------------------|-----------------|
-| `thermo` | Dewatering pump NPSH, shaft heat rejection, compressed-air cooler sizing |
-| `siapws_saturation` | Flash calculations for multi-stage dewatering, degasification |
-| `transport` | Friction loss in dewatering pipes, heat-exchanger U-value for mine chillers |
-| `seawater` | Density/salinity for brine handling in critical-mineral processing |
-| `geophysics` | Resistivity monitoring for leach pads, groundwater intrusion detection |
-| `humid_air` | Mine ventilation psychrometrics (wet-bulb temperature, heat-stress index) |
-| `sbtl` | Real-time lookup for SCADA mine-water monitoring (thousands of points/second) |
-| `thermo_supercooled` | Cold-water injection for ground freezing, shaft sinking through aquifers |
-| `wellbore` | IPR/TPR adaptasi: pit sump pump curves, vertical shaft hydraulic gradient |
-| `scaling` | CaCO₃/SiO₂ scale in dewatering pumps, brine handling lines |
-| `advisory_notes` | Documented pitfalls: saturation boundary, supercooled metastability, low-pressure humid-air breakdown |
+| Field | IAPWS Coverage | Mining Extension Needed |
+|-------|----------------|------------------------|
+| Dewatering pump NPSH | ✅ Water density, vapor pressure (IF97) | Slurry density, particle settling |
+| Mine ventilation | ✅ Humid-air psychrometrics (G11-15) | Dust load, diesel particulates |
+| Tailings water chemistry | ✅ Brine density up to 40 psu (G14-15) | Particle-fluid interaction, consolidation |
+| Cold-water injection | ✅ Supercooled liquid (G12-15) | Ground freezing through porous rock |
+| Critical-mineral brines | ✅ Brine density <40 psu | Salars >350 psu need Pitzer/Krumgalz |
+| Geothermal from flooded mine | ✅ Full IF97 + Supp-sat | Heat conduction through country rock |
+| Pipe friction loss | ✅ Viscosity, thermal conductivity | Slurry rheology (Bingham/Herschel–Bulkley) |
+
+## Direct IAPWS Module Mapping (Water/Steam ONLY)
+
+| pygeotoolbox module | Mining use case | IAPWS Release |
+|---------------------|-----------------|---------------|
+| `thermo` | Mine water density, enthalpy, NPSH | IF97 |
+| `siapws_saturation` | Flash degasification of mine water | Supp-sat |
+| `transport` | Friction loss in water pipes | ThCond, Viscosity |
+| `seawater` | Brine density <40 psu | G14/G15 |
+| `geophysics` | Resistivity of water-saturated rock | Electrical Conductivity |
+| `humid_air` | Mine ventilation psychrometrics | G11-15 |
+| `sbtl` | Real-time SCADA water monitoring | G13-15 |
+| `thermo_supercooled` | Cold-water injection, ground freezing | G12-15 |
+| `wellbore` | Vertical shaft hydraulic gradient | IF97 |
+| `scaling` | CaCO₃/SiO₂ in discharge lines | — (empirical) |
+| `advisory_notes` | Documented water-property pitfalls | Advise 1–6 |
+
+## Mining Engineering Has NO IAPWS Standard
+
+IAPWS does **not** standardize:
+
+- Rock density, porosity, thermal conductivity
+- Ore mineralogy or grade
+- Slurry density, viscosity, yield stress
+- Mine dust/air mixture properties
+- Explosive gas ignition energy
+- Diesel exhaust particulate dispersion
+
+For these, mining relies on:
+- SME (Society for Mining Engineers) handbooks
+- ISO 19434 (mine ventilation)
+- ASTM D421, D422 (soil/rock properties)
+- ASHRAE Fundamentals (ventilation, not IAPWS)
 
 ## Source Research
 
-See `research/` directory for raw data from:
-| Source | Relevance | Keywords |
-|--------|-----------|----------|
-| NIOSH/CDC heat-stress | Mine worker safety, ventilation cooling | temperature, heat, humidity, wet-bulb |
-| Wikipedia: Mine dewatering | Pump sizing, water balance | pump, dewater, steam, mine |
-| Wikipedia: Tailings | Water chemistry, salinity, evaporation | water, brine, salinity, density |
-| USGS critical minerals | Li from geothermal brine — mining overlap | brine, lithium, critical, extraction |
-| arXiv mine ventilation | Academic validation of thermodynamic models | mine, heat, ventilation, water |
-| CrossRef dewatering | Peer-reviewed pump/heat calculations | dewater, pump, water, temperature |
-| IAPWS release list | Standard documents for all formulations | IAPWS-IF97, G11, G12, G13, G14 |
+See `research/` for open-access data:
+| Source | Relevance |
+|--------|-----------|
+| NIOSH/CDC heat-stress | Wet-bulb, ventilation cooling |
+| Wikipedia: Mine dewatering | Pump sizing, NPSH |
+| USGS critical minerals | Brine extraction methods |
+| arXiv/CrossRef | Peer-reviewed ventilation, dewatering |
 
 ## Quick Start
 
 ```bash
-# 1. Clone pygeotoolbox (already implements all IAPWS)
+# 1. Clone pygeotoolbox (IAPWS water/steam only)
 git clone https://github.com/zakusworo/pygeotoolbox-mcp
 cd pygeotoolbox-mcp
 pip install -e .
 
-# 2. Run mine-relevant calculations directly
+# 2. Run MINING-WATER calculations (IAPWS-valid)
 python3 -c "
-from pygeotoolbox import thermo, humid_air, siapws_saturation
+from pygeotoolbox import thermo, humid_air
 
-# Mine dewatering: water density at 35 C, 1 MPa (1 km depth)
-rho = thermo.density(35, 1000)          # ≈ 994 kg/m³
-print(f'Dewatering density: {rho:.1f} kg/m³')
+# Mine dewatering: water density = IAPWS-IF97
+rho = thermo.density_from_TP(28, 101.325)  # 996 kg/m3
+print(f'Mine water density: {rho:.1f} kg/m3')
 
-# Mine ventilation: humid air enthalpy at 30 C, 80% RH
+# Ventilation: humid air = IAPWS G11-15
 h = humid_air.enthalpy_humid_air(30, 0.8)
 print(f'Ventilation enthalpy: {h/1000:.1f} kJ/kg dry air')
-
-# Critical mineral extraction: brine saturation temperature
-T_sat = siapws_saturation.saturation_temperature(1500)
-print(f'Brine flash temperature: {T_sat:.2f} °C')
 "
+
+# 3. Rock mechanics = NOT IAPWS; use SME handbook or Rocscience
 ```
 
 ## Hermes Agent Usage
 
 ```text
 hermes -w                               # isolated workspace
-/skill run-tests                         # load test skill
-/terminal python3 research/dewatering_demo.py
+/terminal python3 demo/dewatering_demo.py # run IAPWS-based demo
 ```
 
 ## License
 
 MIT License — Copyright 2026 Zulfikar Aji Kusworo
-
-Derived from pygeotoolbox-mcp (MIT), re-purposed for mining engineering.
