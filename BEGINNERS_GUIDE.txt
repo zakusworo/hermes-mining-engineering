@@ -1,0 +1,68 @@
+PANDUAN AWAM: Hermes untuk Teknik Pertambangan (Mining Engineering)
+
+Apa ini?
+Ini adalah kursus praktis untuk teknisi pertambangan yang ingin belajar
+menggunakan AI Assistant (Hermes Agent) untuk membantu pekerjaan engineering.
+Semua contoh menggunakan data pertambangan: batuan, lereng, ventilasi,
+slurry, dewatering, blasting, dan analisis kelayakan.
+
+Siapa yang cocok?
+- Engineer tambang / geoteknik
+- Production engineer yang pegang data drill core
+- Mahasiswa teknik pertambangan
+- Data scientist yang kerja di tim mine planning
+- Manajer teknis yang mau evaluasi AI untuk workflow engineering
+
+Apa yang dipelajari?
+1. Meminta AI membaca kode dulu sebelum edit (Explore -> Plan -> Code)
+2. Memberi instruksi spesifik: file mana, fungsi mana, test mana yang gagal
+3. Meminta AI menambahkan test (pengujian) sebelum dipercaya
+4. Menyimpan aturan pertambangan di file CLAUDE.md agar AI ingat terus
+5. Membuat skill (keahlian) mining yang bisa dipakai berulang kali
+6. Mengirim kode berisiko ke "reviewer AI" (subagent) untuk dicek ulang
+7. Menggunakan command shell (terminal) untuk inspeksi data
+8. Menjalankan analisis sensitivitas paralel (cukup cepat)
+
+Cara cepat memulai (Quick Start)
+1. Buka folder ini di terminal WSL.
+2. Install Python dependencies:
+     python3 -m pip install pytest matplotlib
+3. Jalankan figure generator:
+     python3 scripts/generate_course_figures.py
+4. Mulai Hermes:
+     hermes
+5. Masuk ke Exercise 1:
+     cd 01_rock_mass_slope
+6. Baca README.md, lalu coba jalankan exercise.py.
+   Hasilnya adalah kombinasi engineering + AI workflow.
+
+15 Modul Latihan
+
+01_rock_mass_slope          Karakterisasi batuan + stabilitas lereng
+02_ventilation_heat_stress  Ventilasi tambang + manajemen heat stress
+03_slurry_dewatering        Desain pipa slurry + sistem dewatering
+04_blast_vibration          Desain blasting + kontrol getaran
+05_integrated_design        Studi kasus desain tambang terintegrasi
+06_groundwater_inflow       Estimasi inflow air tanah
+07_rock_mass_comparison     Perbandingan batuan (granit vs shale)
+08_pump_selection           Pemilihan pompa + system curve
+09_slope_groundwater        Stabilitas lereng dengan groundwater
+10_bench_domains            Desain bench lintas domain geoteknik
+11_blast_fragmentation      Fragmentasi blasting + digging rate
+12_subsidence               Prediksi subsidence tambang bawah tanah
+13_tailings_dam             Stabilitas tailings dam
+14_mine_closure             Water balance penutupan tambang
+15_feasibility_study        Studi kelayakan (NPV, payback, sensitivitas)
+
+Perbedaan dengan Python Biasa?
+- Setiap latihan punya README.md dengan learning objective
+- Hasil exercise.py adalah grafik + analisis, bukan hanya print text
+- Semua modul bisa diakses sebagai library (src/mining/) dan sebagai course
+- Test otomatis (pytest) memastikan hasil engineering valid
+- AI reviewer (AGENTS.md) memeriksa unit, FOS, dan batas fisik
+
+Tips
+- Jangan langsung minta AI "buat kode". Kasih konteks: data apa,
+  standard mana, batasan fisik apa.
+- Simpan aturan tambang Anda di CLAUDE.md agar AI konsisten.
+- Kalau ragu, jalankan test dulu: PYTHONPATH=../src pytest tests/
