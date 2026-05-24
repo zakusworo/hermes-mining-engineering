@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/iu/OInjkrfqs7+oAv400RNwH5Y8</id>
+  <title>arXiv Query: search_query=all:mine OR all:heat OR all:stress&amp;id_list=&amp;start=0&amp;max_results=10</title>
+  <updated>2026-05-24T07:35:58Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:mine+OR+(all:heat+OR+all:stress)&amp;start=0&amp;max_results=10&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>102256</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/1212.5260v1</id>
+    <title>Heat transfer in buildings : application to air solar heating and Trombe wall design</title>
+    <updated>2012-12-20T08:44:54Z</updated>
+    <link href="https://arxiv.org/abs/1212.5260v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1212.5260v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The aim of this paper is to briefly recall heat transfer modes and explain their integration within a software dedicated to building simulation (CODYRUN). Detailed elements of the validation of this software are presented and two applications are finally discussed. One concerns the modeling of a flat plate air collector and the second focuses on the modeling of Trombe solar walls. In each case, detailed modeling of heat transfer allows precise understanding of thermal and energetic behavior of the studied structures. Recent decades have seen a proliferation of tools for building thermal simulation. These applications cover a wide spectrum from very simplified steady state models to dynamic simulation ones, including computational fluid dynamics modules (Clarke, 2001). These tools are widely available in design offices and engineering firms. They are often used for the design of HVAC systems and still subject to detailed research, particularly with respect to the integration of new fields (specific insulation materials, lighting, pollutants transport, etc.). Available from: http://www.intechopen.com/books/evaporation-condensation-and-heat-transfer/heat-transfer-in-buildings-application-to-solar-air-collector-and-trombe-wall-design</summary>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-12-20T08:44:54Z</published>
+    <arxiv:comment>Available from: http://www.intechopen.com/books/evaporation-condensation-and-heat-transfer/heat-transfer-in-buildings-application-to-solar-air-collector-and-trombe-wall-design</arxiv:comment>
+    <arxiv:primary_category term="cs.CE"/>
+    <arxiv:journal_ref>Evaporation, condensation and heat transfer, InTech (Ed.) (2011) 227-244</arxiv:journal_ref>
+    <author>
+      <name>Harry Boyer</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Frédéric Miranville</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Dimitri Bigot</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Stéphane Guichard</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ingar Idriss</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Aurélien Jean</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ali Hamada Fakra</name>
+      <arxiv:affiliation>PIMENT</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ted Soubdhan</name>
+    </author>
+    <arxiv:doi>10.5772/23025</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.5772/23025" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0409308v2</id>
+    <title>The range of the heat operator</title>
+    <updated>2005-05-20T18:59:27Z</updated>
+    <link href="https://arxiv.org/abs/math/0409308v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0409308v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  This paper describes results characterizing the range of the time-t heat operator on various manifolds, including Euclidean spaces, spheres, and hyperbolic spaces. The guiding principle behind these results is this: The functions in the range of the heat operator should be, roughly, those functions having an analytic continuation to the appropriate complexified manifold with growth in the imaginary directions at most like that of the time-t heat heat kernel.</summary>
+    <category term="math.DG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-09-17T17:44:39Z</published>
+    <arxiv:comment>Final version. To appear in "The Ubiquitous Heat Kernel," edited by Jay Jorgenson and Lynne Walling</arxiv:comment>
+    <arxiv:primary_category term="math.DG"/>
+    <arxiv:journal_ref>The Ubiquitous Heat Kernel, edited by Jay Jorgensen and Lynne Walling, AMS 2006, pp. 203-231</arxiv:journal_ref>
+    <author>
+      <name>Brian C. Hall</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1803.09178v3</id>
+    <title>On the Enhancement of Heat Transfer and Reduction of Entropy Generation by Asymmetric Slip in Pressure-Driven Non-Newtonian Microflows</title>
+    <updated>2018-12-17T18:44:56Z</updated>
+    <link href="https://arxiv.org/abs/1803.09178v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1803.09178v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study hydrodynamics, heat transfer and entropy generation in pressure-driven microchannel flow of a power-law fluid. Specifically, we address the effect of asymmetry in the slip boundary condition at the channel walls. Constant, uniform but unequal heat fluxes are imposed at the walls in this thermally developed flow. The effect of asymmetric slip on the velocity profile, on the wall shear stress, on the temperature distribution, on the Bejan number profiles, and on the average entropy generation and the Nusselt number are established through the numerical evaluation of exact analytical expressions derived. Specifically, due to asymmetric slip, the fluid momentum flux and thermal energy flux are enhanced along the wall with larger slip, which in turn shifts the location of the velocity's maximum to an off-center location closer to the said wall. Asymmetric slip is also shown to redistribute the peaks and plateaus of the Bejan number profile across the microchannel, showing a sharp transition between entropy generation due to heat transfer and due to fluid flow at an off-center-line location. In the presence of asymmetric slip, the difference in the imposed heat fluxes leads to starkly different Bejan number profiles depending on which wall is hotter, and whether the fluid is shear-thinning or shear-thickening. Overall, slip is shown to promote uniformity in both the velocity field and the temperature field, thereby reducing irreversibility in this flow.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-03-24T23:06:26Z</published>
+    <arxiv:comment>15 pages, 11 figures; v2 accepted for publication in the ASME Journal of Heat Transfer; v3 corrects some typos</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <arxiv:journal_ref>ASME Journal of Heat Transfer 141, 022403 (2019)</arxiv:journal_ref>
+    <author>
+      <name>Vishal Anand</name>
+    </author>
+    <author>
+      <name>Ivan C. Christov</name>
+    </author>
+    <arxiv:doi>10.1115/1.4042157</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1115/1.4042157" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1410.5836v1</id>
+    <title>Flow patterns and heat transfer around six in-line circular cylinders at low Reynolds number</title>
+    <updated>2014-10-22T09:24:06Z</updated>
+    <link href="https://arxiv.org/abs/1410.5836v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1410.5836v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The flow field and the heat transfer around six in-line iso-thermal circular cylinders has been studied by mean of numerical simulations. Two values of the center to center spacing ($s=3.6d$ and $4d$, where $d$ is the cylinder diameter) at Reynolds number of $100$ and Prandtl number of $0.7$ has been investigated. Similarly to the in-line two cylinder configuration, in this range a transition in the flow and in the heat transfer occurs. Two different flow patterns have been identified: the stable shear layer (SSL) mode and the shear layer secondary vortices (SLSV) mode, at $3.6$ and $4$ spacing ratio ($s/d$), respectively. At $s/d=3.6$ the flow pattern causes the entrainment of cold fluid on the downstream cylinders enhancing the heat transfer. On the other hand at $s/d=4$ two stable opposite shear layer prevent the cold fluid entrainment over the downstream cylinders reducing their heat exchange. The overall time average heat transfer of the array is enhanced up to 25% decreasing the spacing ratio from $4$ to $3.6$. Furthermore, it is found that the increased heat transfer is related to the phase shift between the Nusselt time series of successive cylinders.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-10-22T09:24:06Z</published>
+    <arxiv:comment>Accepted by JP Journal of Heat and Mass Transfer (2015)</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <arxiv:journal_ref>JP Journal of Heat and Mass Transfer Volume 11, Issue 1, Pages 1 - 28 (February 2015)</arxiv:journal_ref>
+    <author>
+      <name>Francesco Fornarelli</name>
+    </author>
+    <author>
+      <name>Paolo Oresta</name>
+    </author>
+    <author>
+      <name>Antonio Lippolis</name>
+    </author>
+    <arxiv:doi>10.17654/JPHMTFeb2015_001_028</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.17654/JPHMTFeb2015_001_028" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2105.08853v2</id>
+    <title>Two-fluid modeling of heat transfer in flows of dense suspensions</title>
+    <updated>2021-11-04T14:43:22Z</updated>
+    <link href="https://arxiv.org/abs/2105.08853v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2105.08853v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We develop a two-fluid model (TFM) for heat transfer in dense non-Brownian suspensions. Specifically, we propose closure relations for the inter-phase heat transfer coefficient and the thermal diffusivity of the particle phase based on calibration against experimental data. The model is then employed to simulate non-isothermal flow in an annular Couette cell. We find that, when the shear rate is controlled by the rotation of the inner cylinder, both the shear and thermal gradients are responsible for particle migration. Within the TFM framework, we identify the origin and functional form of a "thermo-rheological" migration force that rationalizes our observations. Furthermore, we apply our model to flow in eccentric Couette cells. Our simulations reveal that the system's heat transfer coefficient is affected by both the classic shear-induced migration of particles and the newly identified thermo-rheological migration effect.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-05-18T23:24:36Z</published>
+    <arxiv:comment>20 pages, 11 figures; v2: minor revisions, accepted for publication in International Journal of Heat and Mass Transfer</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <arxiv:journal_ref>Int. J. Heat Mass Transf. 183 (2022) 122068</arxiv:journal_ref>
+    <author>
+      <name>Pranay P. Nagrani</name>
+    </author>
+    <author>
+      <name>Federico Municchi</name>
+    </author>
+    <author>
+      <name>Amy M. Marconnet</name>
+    </author>
+    <author>
+      <name>Ivan C. Christov</name>
+    </author>
+    <arxiv:doi>10.1016/j.ijheatmasstransfer.2021.122068</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.ijheatmasstransfer.2021.122068" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1108.2280v2</id>
+    <title>Heat Transfer and Reconnection Diffusion in Turbulent Magnetized Plasmas</title>
+    <updated>2012-02-08T02:14:14Z</updated>
+    <link href="https://arxiv.org/abs/1108.2280v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1108.2280v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is well known that magnetic fields constrain motions of charged particles, impeding the diffusion of charged particles perpendicular to magnetic field direction. This modification of transport processes is of vital importance for a wide variety of astrophysical processes including cosmic ray transport, transfer of heavy elements in the interstellar medium, star formation etc. Dealing with these processes one should keep in mind that in realistic astrophysical conditions magnetized fluids are turbulent. In this review we single out a single transport process, namely, heat transfer and consider how it occurs in the presence of the magnetized turbulence. We show that the ability of magnetic field lines to constantly change topology and connectivity is at the heart of the correct description of the 3D magnetic field stochasticity in turbulent fluids. This ability is ensured by fast magnetic reconnection in turbulent fluids and puts forward the concept of reconnection diffusion at the core of the physical picture of heat transfer in astrophysical plasmas. Appealing to reconnection diffusion we describe the ability of plasma to diffuse between different magnetized eddies explaining the advection of the heat by turbulence. Adopting the structure of magnetic field that follows from the modern understanding of MHD turbulence, we also discuss thermal conductivity that arises as electrons stream along stochastic magnetic field lines. We compare the effective heat transport that arise from the two processes and conclude that in many astrophysically-motivated cased eddy advection of heat dominates. Finally, we discuss the concepts of sub and superdiffusion and show that the subdiffusion requires rather restrictive settings. At the same time, accelerated diffusion or superdiffusion of heat is possible on the scales less than the injection scale of the turbulence.</summary>
+    <category term="astro-ph.GA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.geo-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-08-10T20:19:02Z</published>
+    <arxiv:comment>25 pages, 8 figures, chapter 9 in "Heat Conduction", ed. V.S. Vikhrenko, ISBN 978-952-307-404-7</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.GA"/>
+    <arxiv:journal_ref>Heat Conduction-Basic Research, 2011, InTEch, Croatia, p. 205-229</arxiv:journal_ref>
+    <author>
+      <name>A. Lazarian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.17450v2</id>
+    <title>Developed and quasi-developed macro-scale heat transfer in micro- and mini-channels with arrays of offset strip fins subject to a uniform heat flux</title>
+    <updated>2024-10-21T07:13:13Z</updated>
+    <link href="https://arxiv.org/abs/2404.17450v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.17450v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In the present work, we examine to what degree the heat transfer can be described as developed on a macro-scale level in typical micro- and mini-channels with offset strip fin arrays subject to a uniform heat flux, considering flow entrance and side-wall effects. Full-scale numerical heat transfer simulations are conducted to determine the extent of the developed macro-scale heat transfer region within the arrays. We find that the onset point of developed heat transfer increases linearly with the Péclet number and channel width. However, the thermal development lengths remain limited relative to the overall channel length. Therefore, the local macro-scale heat transfer coefficient can be modeled by developed Nusselt number correlations with discrepancies below 25% in both the developed and developing heat transfer regions. We observe that quasi-developed heat transfer prevails over nearly the entire entrance region of the channel and significantly contributes to the main heat transfer characteristics, particularly the eigenvalues and amplitudes of the dominant temperature modes. Additionally, we analyze the impact of channel side walls on the temperature field's periodicity and the macro-scale temperature profile, which we characterize through an effective heat transfer coefficient. Our comprehensive numerical data covers various fin height-to-length ratios up to 1, fin pitch-to-length ratios up to 0.5, and channel aspect ratios ranging from 1/5 to 1/17, encompassing Reynolds numbers from 28 to 1224. Two sets of Prandtl number and thermal conductivity ratio are investigated, corresponding to the combinations of copper/air, and copper/water.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-26T14:43:06Z</published>
+    <arxiv:comment>This article may be downloaded for personal use only. Any other use requires prior permission of the author and Elsevier Publishing. This article appeared in International Journal of Heat and Mass Transfer 236, 126285 (2025) and may be found at https://doi.org/10.1016/j.ijheatmasstransfer.2024.126285, 62 pages, 20 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <arxiv:journal_ref>International Journal of Heat and Mass Transfer 236, 126285 (2025)</arxiv:journal_ref>
+    <author>
+      <name>Arthur Vangeffelen</name>
+    </author>
+    <author>
+      <name>Geert Buckinx</name>
+    </author>
+    <author>
+      <name>Carlo De Servi</name>
+    </author>
+    <author>
+      <name>Maria Rosaria Vetrano</name>
+    </author>
+    <author>
+      <name>Martine Baelmans</name>
+    </author>
+    <arxiv:doi>10.1016/j.ijheatmasstransfer.2024.126285</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.ijheatmasstransfer.2024.126285" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2204.09605v2</id>
+    <title>Nusselt number for steady periodically developed heat transfer in micro- and mini-channels with arrays of offset strip fins subject to a uniform heat flux</title>
+    <updated>2022-06-27T09:15:54Z</updated>
+    <link href="https://arxiv.org/abs/2204.09605v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2204.09605v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this work, the Nusselt number is examined for periodically developed heat transfer in micro- and mini-channels with arrays of offset strip fins, subject to a constant heat flux. The Nusselt number is defined on the basis of a heat transfer coefficient which represents the spatially constant macro-scale temperature difference between the fluid and solid during conjugate heat transfer. Its values are determined numerically on a single unit cell of the array for Reynolds numbers between 1 and 600. Two combinations of the Prandtl number and the thermal conductivity ratio are selected, corresponding to air and water. It is shown that the Nusselt number correlations from the literature mainly apply to air in the transitional flow regime in larger conventional channels if the wall temperature remains uniform. As a result, they do not correctly capture the observed trends for the Nusselt number in micro- and mini-channels subject to a constant heat flux. Therefore, new Nusselt number correlations, obtained through a least-squares fitting of 2282 numerical simulations, are presented for air and water. The suitability of these correlations is assessed via the Bayesian approach for parameter estimation and model validation. The correlations respect the observed asymptotic trends and limits of the Nusselt number for all the geometrical parameters of the offset strip fins. In addition, they predict a linear dependence of the Nusselt number on the Reynolds number, in good agreement with the data from this work. Nevertheless, a detailed analysis reveals a more complex scaling of the Nusselt number with the Reynolds number, closely related to the underlying flow regimes, particularly the weak and strong inertia regimes. Finally, through 62 additional simulations, the influence of the material properties on the Nusselt number is illustrated and compared to the available literature.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.app-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-04-20T16:34:28Z</published>
+    <arxiv:comment>This article may be downloaded for personal use only. Any other use requires prior permission of the author and Elsevier Publishing. This article appeared in International Journal of Heat and Mass Transfer 195, 123145 (2022) and may be found at https://www.sciencedirect.com/science/article/pii/S0017931022006160; 63 pages, 21 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <arxiv:journal_ref>International Journal of Heat and Mass Transfer 195, 123145 (2022)</arxiv:journal_ref>
+    <author>
+      <name>Arthur Vangeffelen</name>
+    </author>
+    <author>
+      <name>Geert Buckinx</name>
+    </author>
+    <author>
+      <name>Carlo De Servi</name>
+    </author>
+    <author>
+      <name>Maria Rosaria Vetrano</name>
+    </author>
+    <author>
+      <name>Martine Baelmans</name>
+    </author>
+    <arxiv:doi>10.1016/j.ijheatmasstransfer.2022.123145</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.ijheatmasstransfer.2022.123145" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1009.0092v1</id>
+    <title>A Similarity Analysis for Heat Transfer in Newtonian and Power Law Fluids Using the Instantaneous Wall Shear Stress</title>
+    <updated>2010-09-01T05:26:35Z</updated>
+    <link href="https://arxiv.org/abs/1009.0092v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1009.0092v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a technique that collapses existing experimental data of heat transfer in pipe flow of Newtonian and power law fluids into a single master curve. It also discusses the theoretical basis of heat, mass and momentum analogies and the implications of the present analysis to visualisations of turbulence.</summary>
+    <category term="physics.flu-dyn" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-09-01T05:26:35Z</published>
+    <arxiv:comment>24 pages, 8 figures;  Key words: Heat transfer, transition, turbulence, Newtonian, power law, instantaneous wall shear stress, similarity plot</arxiv:comment>
+    <arxiv:primary_category term="physics.flu-dyn"/>
+    <author>
+      <name>K. T. Trinh</name>
+    </author>
+    <author>
+      <name>B. H. P. Wilkinson</name>
+    </author>
+    <author>
+      <name>N. K. Kiaka</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1907.09259v1</id>
+    <title>Analytical modelling of thermal residual stresses and optimal design of ZrO2/(ZrO2+Ni) sandwich ceramics</title>
+    <updated>2019-04-13T12:55:58Z</updated>
+    <link href="https://arxiv.org/abs/1907.09259v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1907.09259v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The joining of ceramics with metals have been extensively used in applications requiring high strength and excellent heat insulation. However, evaluating the residual stress generated inevitably due to the mismatch in coefficients of thermal expansion of ceramic and metal is challenging, which is very important for fabrication and characterization of layered inhomogeneous material. A simplified analytical model considering the overall deformation compatibility is established to compute the interlaminar residual stresses of the ZrO2/(ZrO2+Ni) sandwich ceramics, which agrees well with the results obtained by the commercial finite element package. The effects of the thickness ratio of the transitional layer to the middle layer, and the number of transitional layers on the properties of the ZrO2/(ZrO2+Ni) sandwich ceramics are researched to obtain the optimal structure.</summary>
+    <category term="physics.app-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-04-13T12:55:58Z</published>
+    <arxiv:comment>Analytical model of residual stress, ZrO2/(ZrO2+Ni) sandwich ceramics, functionally graded material, cermaic-metal joint, high strength and excellent heat insulation</arxiv:comment>
+    <arxiv:primary_category term="physics.app-ph"/>
+    <arxiv:journal_ref>Ceramics International, 41(6), 8142-8148 (2015)</arxiv:journal_ref>
+    <author>
+      <name>Wenbin Zhou</name>
+    </author>
+    <author>
+      <name>Rubing Zhang</name>
+    </author>
+    <author>
+      <name>Shigang Ai</name>
+    </author>
+    <author>
+      <name>Yongmao Pei</name>
+    </author>
+    <author>
+      <name>Daining Fang</name>
+    </author>
+    <arxiv:doi>10.1016/j.ceramint.2015.03.025</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.ceramint.2015.03.025" title="doi"/>
+  </entry>
+</feed>
