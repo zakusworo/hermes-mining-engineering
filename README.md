@@ -1,22 +1,16 @@
 # Hermes Mining Engineering
 
-Pure mining engineering calculations — NO IAPWS dependency.
+Pure mining engineering calculations using empirical, industry-standard methods.
 
-This repository implements empirical, industry-standard methods for
-mining engineering:
+This repository implements:
 - **Rock Mechanics**: Hoek-Brown, RMR, GSI, Mohr-Coulomb (ISRM/SME)
 - **Ventilation**: ASHRAE psychrometrics, heat stress index (NIOSH/ACGIH)
 - **Slurry Transport**: Bingham plastic rheology, settling velocity
-- **Dewatering**: NPSH, pump power, groundwater inflow (empirical fluid mechanics)
+- **Dewatering**: NPSH, pump power, groundwater inflow
+- **Slope Stability**: Bishop simplified, bench design, inter-ramp/overall angles
+- **Blasting**: USBM PPV, air overpressure, blast design
 
-## Why NO IAPWS?
-
-[IAPWS](https://iapws.org) standardizes **water and steam** only.
-Mining engineering deals with **rock, soil, slurry, ore** — none of which
-are covered by IAPWS. For mine water calculations at typical temperatures
-(5–35 °C), simplified empirical formulas (Tetens, linear density) are
-sufficient and industry-standard. Exact IAPWS-IF97 is unnecessary overkill
-for NPSH and pump sizing.
+All modules use **stdlib Python only** — zero external dependencies.
 
 ## Standards Referenced
 
@@ -26,6 +20,8 @@ for NPSH and pump sizing.
 | Ventilation | ASHRAE Fundamentals, McPherson (1993), NIOSH | `ventilation` |
 | Slurry | Bingham plastic, Wilson et al. (2006), SME | `slurry` |
 | Dewatering | SME Handbook, Hartman & Mutmansky | `dewatering` |
+| Slope stability | Bishop simplified, SME, Hoek-Bray | `slope_stability` |
+| Blasting | USBM RI 8507, AS 2187.2 | `blasting` |
 | Heat stress | ACGIH TLV, NIOSH criteria | `ventilation.heat_stress_index` |
 | Rock testing | ASTM D7012, D5731, D4543 | referenced in docs |
 | Mine safety | MSHA regulations, ISO/TC 82 | referenced in docs |
@@ -51,6 +47,16 @@ PYTHONPATH=src python3 exercises/02_ventilation_heat_stress/exercise.py
 PYTHONPATH=src python3 exercises/03_slurry_dewatering/exercise.py
 PYTHONPATH=src python3 exercises/04_blast_vibration/exercise.py
 PYTHONPATH=src python3 exercises/05_integrated_design/exercise.py
+PYTHONPATH=src python3 exercises/06_groundwater_inflow/exercise.py
+PYTHONPATH=src python3 exercises/07_rock_mass_comparison/exercise.py
+PYTHONPATH=src python3 exercises/08_pump_selection/exercise.py
+PYTHONPATH=src python3 exercises/09_slope_groundwater/exercise.py
+PYTHONPATH=src python3 exercises/10_bench_domains/exercise.py
+PYTHONPATH=src python3 exercises/11_blast_fragmentation/exercise.py
+PYTHONPATH=src python3 exercises/12_subsidence/exercise.py
+PYTHONPATH=src python3 exercises/13_tailings_dam/exercise.py
+PYTHONPATH=src python3 exercises/14_mine_closure/exercise.py
+PYTHONPATH=src python3 exercises/15_feasibility_study/exercise.py
 ```
 
 ## Modules
@@ -128,9 +134,44 @@ Q_in = dw.groundwater_inflow_empirical(k=2.5, b=50, drawdown=80,
                                        R=2000, pit_area=50000)
 ```
 
+### `slope_stability.py`
+
+```python
+from mining import slope_stability as ss
+
+# Bishop factor of safety
+F = ss.bishop_factor_of_safety(
+    slip_radius_m=100, slip_depth_m=30,
+    slope_height_m=150, slope_angle_deg=42,
+    cohesion_kPa=250, friction_angle_deg=35,
+    unit_weight_kN_m3=26, pore_pressure_ratio_ru=0.15
+)
+
+# Risk assessment
+status = ss.slope_stability_status(F, 150, 42)
+
+# Bench design
+bench = ss.bench_design(15, 65, 8, "hard_rock")
+```
+
+### `blasting.py`
+
+```python
+from mining import blasting as bl
+
+# Predict blast vibration
+ppv = bl.peak_particle_velocity(500, 100, site_factor_k=800, attenuation_exponent_alpha=1.6)
+
+# Regulatory compliance
+assess = bl.vibration_assessment(ppv, "residential")
+
+# Blast design
+design = bl.blast_design(bench_height_m=15, hole_diameter_mm=150)
+```
+
 ## Tests
 
-23 tests, all pass, zero external dependencies:
+36 tests, all pass, zero external dependencies:
 
 ```bash
 PYTHONPATH=src python3 -m pytest tests/ -v
@@ -165,25 +206,10 @@ PYTHONPATH=src python3 -m pytest tests/ -v
 | 14 | Mine Closure Water Balance | — (empirical) | Closure planning, hydrology |
 | 15 | Pre-Feasibility Study (NPV) | — (financial) | Cash flow, sensitivity |
 
-```bash
-PYTHONPATH=src python3 exercises/01_rock_mass_slope/exercise.py
-PYTHONPATH=src python3 exercises/02_ventilation_heat_stress/exercise.py
-PYTHONPATH=src python3 exercises/03_slurry_dewatering/exercise.py
-PYTHONPATH=src python3 exercises/04_blast_vibration/exercise.py
-PYTHONPATH=src python3 exercises/05_integrated_design/exercise.py
-PYTHONPATH=src python3 exercises/06_groundwater_inflow/exercise.py
-PYTHONPATH=src python3 exercises/07_rock_mass_comparison/exercise.py
-PYTHONPATH=src python3 exercises/08_pump_selection/exercise.py
-PYTHONPATH=src python3 exercises/09_slope_groundwater/exercise.py
-PYTHONPATH=src python3 exercises/10_bench_domains/exercise.py
-PYTHONPATH=src python3 exercises/11_blast_fragmentation/exercise.py
-PYTHONPATH=src python3 exercises/12_subsidence/exercise.py
-PYTHONPATH=src python3 exercises/13_tailings_dam/exercise.py
-PYTHONPATH=src python3 exercises/14_mine_closure/exercise.py
-PYTHONPATH=src python3 exercises/15_feasibility_study/exercise.py
-```
+## Research Sources
 
 `research/` directory contains crawled standards pages:
+
 | Source | File | Size | Relevance |
 |--------|------|------|-----------|
 | SME Handbook | `sme_handbook.html` | 8 KB | Mining methods, ground control |
@@ -203,6 +229,11 @@ hermes -w                               # isolated workspace
 PYTHONPATH=src python3 -m pytest tests/  # run all tests
 PYTHONPATH=src python3 src/mining/rock_mechanics.py  # run demo
 ```
+
+## Companion Toolbox
+
+[`miningtoolbox-mcp`](https://github.com/zakusworo/miningtoolbox-mcp) — 24 MCP tools
+for Hermes Agent, same 6 modules, zero external dependencies.
 
 ## License
 
