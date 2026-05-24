@@ -42,6 +42,15 @@ PYTHONPATH=src python3 src/mining/rock_mechanics.py
 PYTHONPATH=src python3 src/mining/ventilation.py
 PYTHONPATH=src python3 src/mining/slurry.py
 PYTHONPATH=src python3 src/mining/dewatering.py
+PYTHONPATH=src python3 src/mining/slope_stability.py
+PYTHONPATH=src python3 src/mining/blasting.py
+
+# Run exercises
+PYTHONPATH=src python3 exercises/01_rock_mass_slope/exercise.py
+PYTHONPATH=src python3 exercises/02_ventilation_heat_stress/exercise.py
+PYTHONPATH=src python3 exercises/03_slurry_dewatering/exercise.py
+PYTHONPATH=src python3 exercises/04_blast_vibration/exercise.py
+PYTHONPATH=src python3 exercises/05_integrated_design/exercise.py
 ```
 
 ## Modules
@@ -133,8 +142,26 @@ PYTHONPATH=src python3 -m pytest tests/ -v
 | `test_ventilation.py` | Psychrometrics, friction, fan power, heat stress |
 | `test_slurry.py` | Density, Bingham viscosity, pressure drop, settling |
 | `test_dewatering.py` | NPSH, pump power, inflow, water property approx |
+| `test_slope_stability.py` | Bishop FOS, bench design, inter-ramp/overall angle |
+| `test_blasting.py` | PPV, overpressure, blast design, regulatory limits |
 
-## Source Research
+## Exercises
+
+| # | Exercise | Modules | Standards |
+|---|----------|---------|-----------|
+| 1 | Rock Mass Characterization + Slope Stability | rock_mechanics, slope_stability | RMR, Hoek-Brown, Bishop |
+| 2 | Ventilation + Heat Stress Management | ventilation | ASHRAE, NIOSH, ACGIH |
+| 3 | Slurry Pipeline + Dewatering Design | slurry, dewatering | Bingham, SME |
+| 4 | Blast Design + Vibration Control | blasting | USBM RI 8507, AS 2187.2 |
+| 5 | Integrated Mine Design Case Study | ALL 6 modules | Combined |
+
+```bash
+PYTHONPATH=src python3 exercises/01_rock_mass_slope/exercise.py
+PYTHONPATH=src python3 exercises/02_ventilation_heat_stress/exercise.py
+PYTHONPATH=src python3 exercises/03_slurry_dewatering/exercise.py
+PYTHONPATH=src python3 exercises/04_blast_vibration/exercise.py
+PYTHONPATH=src python3 exercises/05_integrated_design/exercise.py
+```
 
 `research/` directory contains crawled standards pages:
 | Source | File | Size | Relevance |
