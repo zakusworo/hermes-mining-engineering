@@ -153,7 +153,17 @@ PYTHONPATH=src python3 -m pytest tests/ -v
 | 2 | Ventilation + Heat Stress Management | ventilation | ASHRAE, NIOSH, ACGIH |
 | 3 | Slurry Pipeline + Dewatering Design | slurry, dewatering | Bingham, SME |
 | 4 | Blast Design + Vibration Control | blasting | USBM RI 8507, AS 2187.2 |
-| 5 | Integrated Mine Design Case Study | ALL 6 modules | Combined |
+| 5 | Integrated Mine Design Case Study | ALL 6 | Combined |
+| 6 | Groundwater Inflow Estimation | dewatering | Theim, SME |
+| 7 | Rock Mass Comparison (Granite vs Shale) | rock_mechanics | Hoek-Brown, ISRM |
+| 8 | Pump Selection and System Curve | dewatering | SME, system engineering |
+| 9 | Slope Stability with Groundwater | slope_stability | Bishop, pore pressure |
+| 10 | Bench Design Across Domains | slope_stability | Inter-ramp, overall slope |
+| 11 | Blast Fragmentation and Digging Rate | blasting | Powder factor, productivity |
+| 12 | Subsidence Prediction | — (empirical) | UK NCB, angle of draw |
+| 13 | Tailings Dam Stability | slope_stability | ANCOLD, ICOLD, pseudo-static |
+| 14 | Mine Closure Water Balance | — (empirical) | Closure planning, hydrology |
+| 15 | Pre-Feasibility Study (NPV) | — (financial) | Cash flow, sensitivity |
 
 ```bash
 PYTHONPATH=src python3 exercises/01_rock_mass_slope/exercise.py
@@ -161,6 +171,16 @@ PYTHONPATH=src python3 exercises/02_ventilation_heat_stress/exercise.py
 PYTHONPATH=src python3 exercises/03_slurry_dewatering/exercise.py
 PYTHONPATH=src python3 exercises/04_blast_vibration/exercise.py
 PYTHONPATH=src python3 exercises/05_integrated_design/exercise.py
+PYTHONPATH=src python3 exercises/06_groundwater_inflow/exercise.py
+PYTHONPATH=src python3 exercises/07_rock_mass_comparison/exercise.py
+PYTHONPATH=src python3 exercises/08_pump_selection/exercise.py
+PYTHONPATH=src python3 exercises/09_slope_groundwater/exercise.py
+PYTHONPATH=src python3 exercises/10_bench_domains/exercise.py
+PYTHONPATH=src python3 exercises/11_blast_fragmentation/exercise.py
+PYTHONPATH=src python3 exercises/12_subsidence/exercise.py
+PYTHONPATH=src python3 exercises/13_tailings_dam/exercise.py
+PYTHONPATH=src python3 exercises/14_mine_closure/exercise.py
+PYTHONPATH=src python3 exercises/15_feasibility_study/exercise.py
 ```
 
 `research/` directory contains crawled standards pages:
