@@ -177,6 +177,8 @@ design = bl.blast_design(bench_height_m=15, hole_diameter_mm=150)
 PYTHONPATH=src python3 -m pytest tests/ -v
 ```
 
+![Test Summary](assets/figures/test_summary.png)
+
 | Test file | Coverage |
 |-----------|----------|
 | `test_rock_mechanics.py` | RQD, Hoek-Brown, Mohr-Coulomb, GSI validation |
