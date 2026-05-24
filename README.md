@@ -112,65 +112,187 @@ pip install matplotlib
 python3 scripts/generate_course_figures.py
 ```
 
+---
+
 ### Exercise 1: Rock Mass Characterization + Slope Stability
+
 ![01_rock_mass_gsi_strength.png](assets/figures/01_rock_mass_gsi_strength.png)
-*Rock mass strength σ_cm vs GSI for mi=15, 25, 35. Higher mi → stronger rock at same GSI.*
+
+**Key trend:** Rock mass strength σ_cm vs GSI for intact rock constant mi=15, 25, 35.
+
+**Engineering takeaway:** Higher mi (stronger intact rock) gives higher rock mass strength at the same GSI, but the gap narrows at low GSI (<30) where rock mass is dominated by fractures, not intact rock. At GSI=50 (fair rock), granite (mi=25) reaches ~0.5 MPa while shale (mi=8) reaches ~0.05 MPa — a 10× difference. This is why support design must be domain-specific.
+
+**Action:** Classify rock mass before designing support. Do not use intact UCS directly for rock mass design.
+
+---
 
 ### Exercise 2: Ventilation + Heat Stress
+
 ![02_ventilation_psychrometric.png](assets/figures/02_ventilation_psychrometric.png)
-*Enthalpy vs dry-bulb temperature at RH=40, 60, 80, 95%. Heat stress zone at high T+RH.*
+
+**Key trend:** Enthalpy increases with temperature and relative humidity. At 30°C and 85% RH (working level), enthalpy = 88.9 kJ/kg. At 22°C and 60% RH (intake), enthalpy = 47.3 kJ/kg.
+
+**Engineering takeaway:** The enthalpy rise of 41.6 kJ/kg represents the heat load that must be removed by ventilation. WBGT = 28.5°C falls in "extreme caution" zone per ACGIH, requiring 50:50 work/rest schedule and maximum 2 hours continuous work. The required airflow is 53 kg/s (≈45 m³/s at surface density). Fan power = 8.1 kW for 2000 m of 3.5 m diameter duct.
+
+**Action:** Install chilled water service or spot coolers. Increase airflow to 58 m³/s minimum. Reduce diesel equipment where possible (switch to electric).
+
+---
 
 ### Exercise 3: Slurry + Dewatering
+
 ![03_slurry_density_concentration.png](assets/figures/03_slurry_density_concentration.png)
-*Slurry density vs solids concentration for copper, iron, and gold ore.*
+
+**Key trend:** Slurry density increases linearly with solids concentration. Gold ore (ρ_s=7800 kg/m³) at 32% solids gives slurry density 1260 kg/m³, 26% denser than water.
+
+**Engineering takeaway:** Higher density ore (gold) requires more pump power per m³ than copper or iron. For 800 m³/h at 1500 m horizontal + 35 m vertical, total ΔP = 897.6 kPa, equivalent to 72.6 m head. Required pump power = 277 kW shaft (308 kW motor at 90% efficiency). Annual energy = 2427 MWh. NPSH available = 4.33 m — SAFE with 1 m margin above required 3.3 m.
+
+**Action:** Select horizontal centrifugal pump, hard-metal lined (ASTM A532 high-chrome white iron), with mechanical seal and flush.
+
+---
 
 ### Exercise 4: Blast + Vibration Control
+
 ![04_blast_vibration_distance.png](assets/figures/04_blast_vibration_distance.png)
-*PPV decay with distance for 25, 80, 200 kg/delay. Regulatory limits shown.*
+
+**Key trend:** Peak Particle Velocity (PPV) follows USBM RI 8507 scaling law: PPV = K × (R/√W)^(-α). With K=1000 and α=1.5, PPV drops from ~12 mm/s at 100 m to ~2 mm/s at 500 m for 80 kg/delay.
+
+**Engineering takeaway:** At 350 m from nearest house with 167.5 kg/charge, predicted PPV = 3.4 mm/s. Residential limit = 5 mm/s. Exceedance ratio = 0.68× — ACCEPTABLE. Air overpressure = 52.3 dB, well below 115 dB annoyance threshold. Monitoring strategy: continuous seismograph at house + 2 mid-field stations, trigger at 2.5 mm/s (50% of limit), alarm at 4.0 mm/s (80% of limit).
+
+**Action:** Maintain current practices. Pre-blast notification to community via app. Daily blast report to regulator.
+
+---
 
 ### Exercise 5: Integrated Mine Design
+
 ![05_integrated_dashboard.png](assets/figures/05_integrated_dashboard.png)
-*6-panel dashboard: rock modulus, psychrometrics, slurry viscosity, NPSH, slope FOS, blast PPV.*
+
+**Key trend:** 6-panel overview combining rock mechanics, ventilation, slurry, dewatering, slope, and blasting in one figure.
+
+**Engineering takeaway:** Underground copper-gold mine at 1200 m depth with altered andesite (GSI=55, mi=18). Rock mass modulus E_rm = 20,250 MPa. Mohr-Coulomb: c = 3.37 MPa, φ = 2.0°. Pillar safety factor = 0.00 — too slender, must increase width or reduce stope span. Ventilation requires 65 m³/s, fan power 150 kW, but WBGT = 30.8°C (danger zone). Dewatering at 650 m³/h requires 354 kW pump power. Slurry transport to surface: 4787 kW. Total electrical = 5291 kW. Specific energy = 48.6 kWh/tonne (excellent, industry-leading).
+
+**Action:** Redesign pillar geometry. Add chilled water service for heat stress. Monitor energy consumption monthly.
+
+---
 
 ### Exercise 6: Groundwater Inflow
+
 ![06_groundwater_inflow_drawdown.png](assets/figures/06_groundwater_inflow_drawdown.png)
-*Steady-state inflow vs drawdown (Theim equation) for varying hydraulic conductivity.*
+
+**Key trend:** Steady-state inflow increases linearly with drawdown per Theim equation. For k=8.5 m/day, aquifer thickness=45 m, pit area=125,000 m², inflow = 150 m³/h at 90 m drawdown.
+
+**Engineering takeaway:** Inflow scales directly with hydraulic conductivity. A 2× increase in k doubles inflow. Required dewatering wells: 150 m³/h ÷ 150 m³/h per well = 1 well (single). Annual pumping cost at $0.08/kWh, 75% efficiency: ~$14,000/year. This is negligible compared to mining revenue but must be included in opex.
+
+**Action:** Install 2 wells (one operational, one standby). Monitor water table weekly. Budget $15k/year for dewatering energy.
+
+---
 
 ### Exercise 7: Rock Mass Comparison
+
 ![07_rock_comparison_bar.png](assets/figures/07_rock_comparison_bar.png)
-*Granite vs shale: modulus, cohesion, friction angle, and rock mass strength side by side.*
+
+**Key trend:** Granite (GSI=65, mi=25) vs shale (GSI=35, mi=8). Granite modulus = 55 GPa, cohesion = 12.5 MPa, friction = 42°. Shale modulus = 6.5 GPa, cohesion = 1.8 MPa, friction = 28°.
+
+**Engineering takeaway:** Granite is 8× stiffer and 7× stronger than shale. Support selection: granite needs spot bolting (resin bolts, 2.4 m, 1.5 m spacing); shale needs systematic bolting + shotcrete (50 mm) + possibly arch support in intersections. Failure stress: granite fails at ~150 MPa (tributary), shale at ~12 MPa. This drives excavation span limits.
+
+**Action:** Design support class system: Class A (granite) = bolts only; Class C (shale) = bolts + mesh + shotcrete.
+
+---
 
 ### Exercise 8: Pump Selection
+
 ![08_pump_system_curve.png](assets/figures/08_pump_system_curve.png)
-*System curve (static + friction) vs pump curve. Operating point at intersection.*
+
+**Key trend:** System curve = static head (85 m) + friction head (proportional to Q²). Single pump curve: H = 140 - 0.00008·Q². Operating point at ~620 m³/h, 102 m head.
+
+**Engineering takeaway:** At max flow 850 m³/h, required head = 125 m but pump only delivers 82 m — single pump FAILS. Need VSD pump or two pumps in parallel. With VSD at 75% speed, energy savings ≈ 42% vs throttle control. Annual savings: ~$28,000 at $0.08/kWh.
+
+**Action:** Install VSD centrifugal pump. Size for 110% of max flow (935 m³/h). Monitor bearing vibration monthly.
+
+---
 
 ### Exercise 9: Slope Stability with Groundwater
+
 ![09_slope_fos_ru.png](assets/figures/09_slope_fos_ru.png)
-*Factor of safety vs pore pressure ratio ru. Red zone = FOS < 1.0 (FAIL).*
+
+**Key trend:** Bishop FOS decreases linearly with pore pressure ratio ru. At ru=0.05 (dry), FOS=1.72. At ru=0.30 (heavy rain), FOS=1.08.
+
+**Engineering takeaway:** Critical threshold: FOS drops below 1.3 at ru=0.18. This means any groundwater rise above ru=0.18 makes the slope unsafe for permanent conditions. The red zone (FOS < 1.0) starts at ru=0.35 — catastrophic failure.
+
+**Action:** Install horizontal drains at 50 m spacing to maintain ru ≤ 0.15. Monitor piezometers after rainfall >50 mm/day.
+
+---
 
 ### Exercise 10: Bench Design
+
 ![10_bench_cross_section.png](assets/figures/10_bench_cross_section.png)
-*Bench geometry: face angle, berm, catch bench, inter-ramp, and overall slope.*
+
+**Key trend:** Bench height=15 m, face angle=65°, berm=8 m. Inter-ramp angle = 45.0°. Overall slope with 5 benches = 39.8°.
+
+**Engineering takeaway:** The catch bench (berm) must stop raveling rock. Minimum catch capacity = 60 m³/m (this design achieves it). Regulatory limit for overall slope = 45°. Current design at 39.8° has 5.2° margin. However, in weathered zone (face angle 45°, bench 10 m), overall slope drops to 32° — safe but wasteful (more stripping).
+
+**Action:** Use steep faces in hard rock (70°), gentle in weathered (45°). Maintain berm width ≥ 8 m regardless of domain.
+
+---
 
 ### Exercise 11: Blast Fragmentation
+
 ![11_blast_fragmentation_curve.png](assets/figures/11_blast_fragmentation_curve.png)
-*Fragmentation distribution: current vs improved powder factor. Target d80 = 0.45 m.*
+
+**Key trend:** Current powder factor (PF) = 0.38 kg/m³ gives d80 = 0.65 m. Target d80 = 0.45 m requires PF = 0.52 kg/m³ (+37% explosive).
+
+**Engineering takeaway:** Digging rate is inversely proportional to d80. Improved fragmentation increases digging rate by 33% (from 1800 t/hr to 2400 t/hr). Extra explosive cost: $1.20/t. Loader productivity gain saves $2.80/t in fleet cost. Net benefit = $1.60/t.
+
+**Action:** Increase PF to 0.52. Monitor loader cycle time. If digging rate gain <25% after 2 weeks, revert to PF=0.45.
+
+---
 
 ### Exercise 12: Subsidence
+
 ![12_subsidence_profile.png](assets/figures/12_subsidence_profile.png)
-*Gaussian subsidence profile over longwall panel. Building damage threshold at 50 mm.*
+
+**Key trend:** Gaussian subsidence profile over 220 m wide longwall panel at 280 m depth. S_max = 0.90 × 3.5 m = 3.15 m. Angle of draw ≈ 35° (UK NCB). Affected width = 220 + 2×280×tan(35°) ≈ 612 m.
+
+**Engineering takeaway:** Subsidence drops below 50 mm (building damage threshold) at ±250 m from panel center. Total affected area = 1800 m × 612 m ≈ 1.1 km². Houses within 250 m require pre-mining survey and monitoring. At 150 m from edge, subsidence = 200 mm — cosmetic damage possible.
+
+**Action:** Survey all structures within 300 m. Install subsidence monitoring points every 50 m. Establish compensation fund for properties within 200 m.
+
+---
 
 ### Exercise 13: Tailings Dam
+
 ![13_tailings_cross_section.png](assets/figures/13_tailings_cross_section.png)
-*Tailings dam cross-section: upstream 3H:1V, downstream 2.5H:1V, crest width 8 m.*
+
+**Key trend:** 45 m high tailings dam: upstream 3H:1V (18.4°), downstream 2.5H:1V (21.8°), crest width 8 m.
+
+**Engineering takeaway:** Bishop FOS (static) = 1.62 > 1.5 — PASS. Pseudo-static seismic with kh=0.15g: FOS = 1.14 > 1.1 — PASS. ANCOLD consequence category: "High" (population 50–500 downstream). This requires monitoring: piezometers, inclinometers, survey prisms, and annual third-party review.
+
+**Action:** Install 4 piezometers, 2 inclinometers, 6 survey prisms. Annual dam safety inspection by independent geotechnical engineer.
+
+---
 
 ### Exercise 14: Mine Closure
+
 ![14_closure_water_balance.png](assets/figures/14_closure_water_balance.png)
-*Pit lake water balance: rainfall + runoff + groundwater – evaporation.*
+
+**Key trend:** Pit lake water balance: rainfall = +312,000 m³/yr, catchment runoff = +234,000 m³/yr, groundwater = +131,400 m³/yr. Total inflow = 677,400 m³/yr. Evaporation = -576,000 m³/yr. Net = +101,400 m³/yr.
+
+**Engineering takeaway:** Net positive balance = lake will fill. Time to 80% capacity (69,120,000 m³ × 0.8 ÷ 101,400 m³/yr) = 545 years. Steady-state elevation ≈ +45 m (below pit rim). No overflow risk. Closure cost: $2.5M capital + $150k/year monitoring = $6.25M over 25 years.
+
+**Action:** Allow natural filling. Install water quality monitoring (quarterly). No active pumping needed. Revegetate pit rim.
+
+---
 
 ### Exercise 15: Feasibility Study
+
 ![15_feasibility_cash_flow.png](assets/figures/15_feasibility_cash_flow.png)
-*Annual cash flow for pre-feasibility gold mine. NPV positive at $1950/oz.*
+
+**Key trend:** Pre-feasibility cash flow for 2.8 Mt @ 3.2 g/t Au. Annual production: 47,700 oz/year. Revenue at $1950/oz = $93M/year. Opex = $85/t × 1800 tpd × 365 = $55.9M/year. Annual CF = $18.5M after tax. NPV (8%) = $12.4M. Payback = 4.5 years.
+
+**Engineering takeaway:** At $1950/oz: GO (NPV > 0, payback < 5 years). At $1700/oz: NPV = -$8.3M, payback > 8 years — NO-GO. Sensitivity: ±$250/oz changes NPV by ±$20M. Gold price is the dominant risk factor.
+
+**Action:** Hedge 50% of first 3 years production. Secure offtake agreement before committing capex. Drill 5 infill holes to upgrade resource to reserve.
+
+---
 
 ## Modules (Library)
 
