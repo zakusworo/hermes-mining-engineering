@@ -105,27 +105,72 @@ Explore → Plan → Code → Verify → Review
 
 ## Illustrated Outputs
 
-Every exercise produces:
-- **Console output** — engineering calculations with physical interpretation
-- **Matplotlib figure** — dark-themed visualization (run `scripts/generate_course_figures.py`)
+Every exercise produces both **console output** (engineering calculations) and a **matplotlib figure** (dark-themed). Run all figures with:
 
-| Exercise | Figure | Key Trend |
-|----------|--------|-----------|
-| 1 | `01_rock_mass_gsi_strength.png` | σ_cm vs GSI for mi=15,25,35 |
-| 2 | `02_ventilation_psychrometric.png` | Enthalpy vs T at RH=40,60,80,95% |
-| 3 | `03_slurry_density_concentration.png` | Density vs Cw for Cu, Fe, Au ore |
-| 4 | `04_blast_vibration_distance.png` | PPV decay with distance |
-| 5 | `05_integrated_dashboard.png` | 6-panel mine design overview |
-| 6 | `06_groundwater_inflow_drawdown.png` | Inflow vs drawdown (Theim) |
-| 7 | `07_rock_comparison_bar.png` | Granite vs shale bar chart |
-| 8 | `08_pump_system_curve.png` | System + pump curve intersection |
-| 9 | `09_slope_fos_ru.png` | FOS vs pore pressure ratio |
-| 10 | `10_bench_cross_section.png` | Bench geometry diagram |
-| 11 | `11_blast_fragmentation_curve.png` | Cumulative passing vs size |
-| 12 | `12_subsidence_profile.png` | Gaussian subsidence over panel |
-| 13 | `13_tailings_cross_section.png` | Dam cross-section |
-| 14 | `14_closure_water_balance.png` | Water balance bar chart |
-| 15 | `15_feasibility_cash_flow.png` | Annual cash flow |
+```bash
+pip install matplotlib
+python3 scripts/generate_course_figures.py
+```
+
+### Exercise 1: Rock Mass Characterization + Slope Stability
+![01_rock_mass_gsi_strength.png](assets/figures/01_rock_mass_gsi_strength.png)
+*Rock mass strength σ_cm vs GSI for mi=15, 25, 35. Higher mi → stronger rock at same GSI.*
+
+### Exercise 2: Ventilation + Heat Stress
+![02_ventilation_psychrometric.png](assets/figures/02_ventilation_psychrometric.png)
+*Enthalpy vs dry-bulb temperature at RH=40, 60, 80, 95%. Heat stress zone at high T+RH.*
+
+### Exercise 3: Slurry + Dewatering
+![03_slurry_density_concentration.png](assets/figures/03_slurry_density_concentration.png)
+*Slurry density vs solids concentration for copper, iron, and gold ore.*
+
+### Exercise 4: Blast + Vibration Control
+![04_blast_vibration_distance.png](assets/figures/04_blast_vibration_distance.png)
+*PPV decay with distance for 25, 80, 200 kg/delay. Regulatory limits shown.*
+
+### Exercise 5: Integrated Mine Design
+![05_integrated_dashboard.png](assets/figures/05_integrated_dashboard.png)
+*6-panel dashboard: rock modulus, psychrometrics, slurry viscosity, NPSH, slope FOS, blast PPV.*
+
+### Exercise 6: Groundwater Inflow
+![06_groundwater_inflow_drawdown.png](assets/figures/06_groundwater_inflow_drawdown.png)
+*Steady-state inflow vs drawdown (Theim equation) for varying hydraulic conductivity.*
+
+### Exercise 7: Rock Mass Comparison
+![07_rock_comparison_bar.png](assets/figures/07_rock_comparison_bar.png)
+*Granite vs shale: modulus, cohesion, friction angle, and rock mass strength side by side.*
+
+### Exercise 8: Pump Selection
+![08_pump_system_curve.png](assets/figures/08_pump_system_curve.png)
+*System curve (static + friction) vs pump curve. Operating point at intersection.*
+
+### Exercise 9: Slope Stability with Groundwater
+![09_slope_fos_ru.png](assets/figures/09_slope_fos_ru.png)
+*Factor of safety vs pore pressure ratio ru. Red zone = FOS < 1.0 (FAIL).*
+
+### Exercise 10: Bench Design
+![10_bench_cross_section.png](assets/figures/10_bench_cross_section.png)
+*Bench geometry: face angle, berm, catch bench, inter-ramp, and overall slope.*
+
+### Exercise 11: Blast Fragmentation
+![11_blast_fragmentation_curve.png](assets/figures/11_blast_fragmentation_curve.png)
+*Fragmentation distribution: current vs improved powder factor. Target d80 = 0.45 m.*
+
+### Exercise 12: Subsidence
+![12_subsidence_profile.png](assets/figures/12_subsidence_profile.png)
+*Gaussian subsidence profile over longwall panel. Building damage threshold at 50 mm.*
+
+### Exercise 13: Tailings Dam
+![13_tailings_cross_section.png](assets/figures/13_tailings_cross_section.png)
+*Tailings dam cross-section: upstream 3H:1V, downstream 2.5H:1V, crest width 8 m.*
+
+### Exercise 14: Mine Closure
+![14_closure_water_balance.png](assets/figures/14_closure_water_balance.png)
+*Pit lake water balance: rainfall + runoff + groundwater – evaporation.*
+
+### Exercise 15: Feasibility Study
+![15_feasibility_cash_flow.png](assets/figures/15_feasibility_cash_flow.png)
+*Annual cash flow for pre-feasibility gold mine. NPV positive at $1950/oz.*
 
 ## Modules (Library)
 

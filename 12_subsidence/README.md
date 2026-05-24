@@ -45,3 +45,42 @@ Show building damage threshold at 50 mm.
 ## Illustrated Output
 
 ![Subsidence Profile](assets/figures/12_subsidence_profile.png)
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 12: Subsidence Prediction
+============================================================
+
+[Task 1] Maximum Subsidence
+  Width/depth ratio: 0.79
+  S_max:             2.06 m
+  As % of thickness: 59%
+
+[Task 2] Subsidence Profile
+  x=-300 m → S=0.000 m
+  x=-150 m → S=0.050 m
+  x= -50 m → S=1.364 m
+  x=   0 m → S=2.062 m
+  x=  50 m → S=1.364 m
+  x= 150 m → S=0.050 m
+  x= 300 m → S=0.000 m
+
+[Task 3] Surface Impact at 150 m from edge
+  Angle of draw:     35.0°
+  Influence zone:    ±400 m from panel edge
+  150 m from edge:   WITHIN influence zone
+  Expected subsidence: ~0.62 m
+
+[Task 4] Monitoring and Mitigation
+  → Survey prisms every 50 m along transects
+  → InSAR satellite monitoring monthly
+  → Crack gauges on structures within influence zone
+  → Pre-load foundations in high-risk area
+  → Grout injection if tilt > 5 mm/m
+
+============================================================
+Exercise 12 complete.
+============================================================
+```

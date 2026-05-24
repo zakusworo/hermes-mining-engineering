@@ -34,3 +34,44 @@ Run pytest tests/test_rock_mechanics.py and tests/test_slope_stability.py.
 - Understand RQD → RMR → GSI → Hoek-Brown workflow
 - See how rock mass strength differs from intact rock strength
 - Verify slope FOS against minimum thresholds (FOS ≥ 1.3 temporary, ≥ 1.5 permanent)
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 1: Rock Mass Characterization and Slope Stability
+============================================================
+
+[Task 1] Rock Mass Rating
+  RQD:           95.6%
+  Basic RMR:     59/100
+  Classification: Fair rock
+  Estimated GSI:  54
+
+[Task 2] Hoek-Brown Parameters
+  mb:            0.067
+  s:             0.006029
+  a:             0.5
+  E_rm:          21160.0 MPa
+  σ_cm:          0.005 MPa
+
+[Task 3] Mohr-Coulomb Equivalent
+  Cohesion (c):   4.10 MPa
+  Friction (φ):   7.3°
+  Tensile:        -10.80 MPa
+
+[Task 4] Slope Stability
+  Factor of Safety: 35.88
+  Status:           stable (low risk)
+  Action:           Continue operations, routine monitoring
+
+[Task 5] Bench Design (Hard Rock)
+  Inter-ramp angle: 45.0°
+  Overall slope:    39.8°
+  Catch capacity:   60 m³/m
+  Status:           OK
+
+============================================================
+Exercise 1 complete.
+============================================================
+```

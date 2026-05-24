@@ -44,3 +44,39 @@ Run pytest tests/test_blasting.py.
 ## Illustrated Output
 
 ![Fragmentation Curve](assets/figures/11_blast_fragmentation_curve.png)
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 11: Blast Fragmentation and Digging Rate
+============================================================
+
+[Task 1] Current vs Target
+  Volume/hole:      315.0 m³
+  Current charge:   119.7 kg (PF=0.38)
+  Target charge:    163.8 kg (PF=0.52)
+  Increase:         +44.1 kg/hole (+37%)
+
+[Task 2] Blast Design
+  Holes per round:  ~40 (for 800 m² face)
+  Total charge:     6552 kg
+  Powder factor:    0.52 kg/m³
+
+[Task 3] Truck Loads
+  Swell volume:     17010 m³
+  12 m³ loads:      1418 loads
+
+[Task 4] Digging Rate
+  Current d80 ~0.65 m → 180 t/h digging rate
+  Target d80 ~0.45 m → 240 t/h digging rate (+33%)
+  Annual benefit:   +20% loader productivity
+
+[Task 5] Cost-Benefit
+  Extra explosive cost: $4410/round
+  Productivity benefit: $23389/round (simplified)
+
+============================================================
+Exercise 11 complete.
+============================================================
+```

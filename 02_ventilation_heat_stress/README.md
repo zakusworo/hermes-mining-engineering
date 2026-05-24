@@ -42,3 +42,45 @@ Run pytest tests/test_ventilation.py.
 - Psychrometric calculations using Tetens/ASHRAE (not IAPWS)
 - Heat stress index classification (safe, caution, extreme caution, danger)
 - Ventilation sizing for deep mines
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 2: Mine Ventilation and Heat Stress Management
+============================================================
+
+[Task 1] Psychrometric State
+  Intake:    T=22.0C, RH=60%, WB=16.8C, h=47.3 kJ/kg
+  Working:   T=30.0C, RH=85%, WB=27.9C, h=88.9 kJ/kg
+
+  Enthalpy rise:   41.6 kJ/kg
+  Mass flow:       53.0 kg/s
+  Sensible+latent heat pick-up: 2.2 kW
+
+[Task 2] Heat Stress Assessment
+  WBGT:            28.5 C
+  Classification:  extreme_caution
+  Work/rest:       50:50
+  Max continuous:  2.0 hours
+  Action:          Provide cooling/shade/hydration
+
+[Task 3] Ventilation System
+  Friction ΔP:     122 Pa
+  Fan power:       8.1 kW
+  Annual energy:   71 MWh/year
+
+[Task 4] Heat from Machinery
+  Diesel heat:     484 kW (approx)
+  Total heat load: 520.3 kW
+
+[Task 5] Recommendations
+  → Install chilled water service (CWS) or spot coolers
+  → Increase airflow to 58 m³/s minimum
+  → Reduce diesel equipment where possible (switch to electric)
+  → Implement work/rest: 50:50
+
+============================================================
+Exercise 2 complete.
+============================================================
+```

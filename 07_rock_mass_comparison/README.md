@@ -46,3 +46,31 @@ Run pytest tests/test_rock_mechanics.py.
 ## Illustrated Output
 
 ![Rock Mass Comparison](assets/figures/07_rock_comparison_bar.png)
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 7: Rock Mass Comparison
+============================================================
+
+[Granite]
+  mb=0.436, s=0.0205, a=0.5
+  E_rm=12250 MPa
+  c=7.33 MPa, φ=17.6°
+  σ_cm=0.06 MPa
+  σ_t=-6.57 MPa
+  Support: Rock bolts + shotcrete + mesh
+
+[Shale]
+  mb=0.001, s=0.0007, a=0.5
+  E_rm=22452 MPa
+  c=0.60 MPa, φ=0.5°
+  σ_cm=0.00 MPa
+  σ_t=-32.85 MPa
+  Support: Rock bolts + mesh (minimal)
+
+============================================================
+Exercise 7 complete.
+============================================================
+```

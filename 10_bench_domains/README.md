@@ -43,3 +43,51 @@ Run pytest tests/test_slope_stability.py.
 ## Illustrated Output
 
 ![Bench Cross-Section](assets/figures/10_bench_cross_section.png)
+
+## Sample Output
+
+```text
+============================================================
+EXERCISE 10: Bench Design Across Geotechnical Domains
+============================================================
+
+[Task 1-3] Bench Design Comparison
+
+  Hard iron formation:
+    Bench height:        15 m
+    Bench face angle:    70°
+    Berm width:          10 m
+    Inter-ramp angle:    44.1°
+    Overall slope:       39.1°
+    Catch capacity:      75 m³/m
+    Status:              OK
+
+  Transitional zone:
+    Bench height:        12 m
+    Bench face angle:    55°
+    Berm width:          8 m
+    Inter-ramp angle:    36.2°
+    Overall slope:       31.7°
+    Catch capacity:      48 m³/m
+    Status:              OK
+
+  Weathered oxide:
+    Bench height:        8 m
+    Bench face angle:    45°
+    Berm width:          6 m
+    Inter-ramp angle:    29.7°
+    Overall slope:       25.2°
+    Catch capacity:      24 m³/m
+    Status:              OK
+
+[Task 4] Rockfall Containment
+  Hard domain: 10 m berm (catches 90% of design rockfall)
+  Transitional: 8 m berm + shotcrete face
+  Weathered: 6 m berm + mesh + bench scaling
+
+[Task 5] Domain Transition
+  → 20 m wide step-out at domain boundary
+  → Additional berm + monitoring prisms
+  →
+... (truncated)
+```
