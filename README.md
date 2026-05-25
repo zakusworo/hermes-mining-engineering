@@ -156,7 +156,7 @@ python3 scripts/generate_course_figures.py
 
 **Key trend:** Peak Particle Velocity (PPV) follows USBM RI 8507 scaling law: PPV = K × (R/√W)^(-α). With K=1000 and α=1.5, PPV drops from ~12 mm/s at 100 m to ~2 mm/s at 500 m for 80 kg/delay.
 
-**Engineering takeaway:** At 350 m from nearest house with 167.5 kg/charge, predicted PPV = 3.4 mm/s. Residential limit = 5 mm/s. Exceedance ratio = 0.68× — ACCEPTABLE. Air overpressure = 52.3 dB, well below 115 dB annoyance threshold. Monitoring strategy: continuous seismograph at house + 2 mid-field stations, trigger at 2.5 mm/s (50% of limit), alarm at 4.0 mm/s (80% of limit).
+**Engineering takeaway:** At 350 m from nearest house with 167.5 kg/charge, predicted PPV = 3.4 mm/s. Residential limit = 5 mm/s. Exceedance ratio = 0.68× — ACCEPTABLE. Air overpressure = 112.3 dB, just below 115 dB annoyance threshold. Monitoring strategy: continuous seismograph at house + 2 mid-field stations, trigger at 2.5 mm/s (50% of limit), alarm at 4.0 mm/s (80% of limit).
 
 **Action:** Maintain current practices. Pre-blast notification to community via app. Daily blast report to regulator.
 
@@ -168,7 +168,7 @@ python3 scripts/generate_course_figures.py
 
 **Key trend:** 6-panel overview combining rock mechanics, ventilation, slurry, dewatering, slope, and blasting in one figure.
 
-**Engineering takeaway:** Underground copper-gold mine at 1200 m depth with altered andesite (GSI=55, mi=18). Rock mass modulus E_rm = 20,250 MPa. Mohr-Coulomb: c = 3.37 MPa, φ = 2.0°. Pillar safety factor = 0.00 — too slender, must increase width or reduce stope span. Ventilation requires 65 m³/s, fan power 150 kW, but WBGT = 30.8°C (danger zone). Dewatering at 650 m³/h requires 354 kW pump power. Slurry transport to surface: 4787 kW. Total electrical = 5291 kW. Specific energy = 48.6 kWh/tonne (excellent, industry-leading).
+**Engineering takeaway:** Underground copper-gold mine at 1200 m depth with altered andesite (GSI=55, mi=18). Rock mass modulus E_rm = 14,387 MPa. Mohr-Coulomb: c = 3.37 MPa, φ = 36.7°. Pillar safety factor = 0.03 — too slender, must increase width or reduce stope span. Ventilation requires 65 m³/s, fan power 150 kW, but WBGT = 30.8°C (danger zone). Dewatering at 650 m³/h requires 354 kW pump power. Slurry transport to surface: 4787 kW. Total electrical = 5291 kW. Specific energy = 48.6 kWh/tonne (excellent, industry-leading).
 
 **Action:** Redesign pillar geometry. Add chilled water service for heat stress. Monitor energy consumption monthly.
 
@@ -190,7 +190,7 @@ python3 scripts/generate_course_figures.py
 
 ![07_rock_comparison_bar.png](assets/figures/07_rock_comparison_bar.png)
 
-**Key trend:** Granite (GSI=65, mi=25) vs shale (GSI=35, mi=8). Granite modulus = 55 GPa, cohesion = 12.5 MPa, friction = 42°. Shale modulus = 6.5 GPa, cohesion = 1.8 MPa, friction = 28°.
+**Key trend:** Granite (GSI=65, mi=25) vs shale (GSI=35, mi=8). Granite modulus = 14.4 GPa, cohesion = 3.1 MPa, friction = 50°. Shale modulus = 1.1 GPa, cohesion = 0.2 MPa, friction = 30°.
 
 **Engineering takeaway:** Granite is 8× stiffer and 7× stronger than shale. Support selection: granite needs spot bolting (resin bolts, 2.4 m, 1.5 m spacing); shale needs systematic bolting + shotcrete (50 mm) + possibly arch support in intersections. Failure stress: granite fails at ~150 MPa (tributary), shale at ~12 MPa. This drives excavation span limits.
 
