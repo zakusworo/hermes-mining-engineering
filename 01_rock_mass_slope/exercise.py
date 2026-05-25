@@ -86,7 +86,6 @@ print(f"  Tensile:        {mc['tensile_strength_MPa']:.2f} MPa")
 
 # Task 4: Bishop FOS
 F = ss.bishop_factor_of_safety(
-    slip_radius_m=120, slip_depth_m=40,
     slope_height_m=slope_h, slope_angle_deg=slope_angle,
     cohesion_kPa=mc['cohesion_MPa']*1000,
     friction_angle_deg=mc['friction_angle_deg'],

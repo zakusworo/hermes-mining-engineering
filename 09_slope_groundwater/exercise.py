@@ -28,7 +28,11 @@ scenarios = [(0.05, "dry"), (0.15, "moderate"), (0.30, "heavy rainfall")]
 
 print("\n[Task 1] FOS vs Pore Pressure")
 for ru, label in scenarios:
-    F = ss.bishop_factor_of_safety(100, 35, 120, 40, 180, 30, 24, ru)
+    F = ss.bishop_factor_of_safety(
+        slope_height_m=120, slope_angle_deg=40,
+        cohesion_kPa=180, friction_angle_deg=30,
+        unit_weight_kN_m3=24, pore_pressure_ratio_ru=ru
+    )
     status = ss.slope_stability_status(F, 120, 40)
     print(f"  ru={ru:.2f} ({label:15s}) → FOS={F:.2f} → {status['status']}")
 
@@ -37,7 +41,11 @@ print("\n[Task 2] Critical ru for FOS=1.0")
 low, high = 0.0, 0.5
 for _ in range(20):
     mid = (low + high) / 2
-    F = ss.bishop_factor_of_safety(100, 35, 120, 40, 180, 30, 24, mid)
+    F = ss.bishop_factor_of_safety(
+        slope_height_m=120, slope_angle_deg=40,
+        cohesion_kPa=180, friction_angle_deg=30,
+        unit_weight_kN_m3=24, pore_pressure_ratio_ru=mid
+    )
     if F > 1.0:
         low = mid
     else:

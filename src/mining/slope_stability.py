@@ -3,90 +3,215 @@ Open-pit slope stability analysis.
 
 Based on:
 - Hoek-Brown (2002) for rock mass strength
-- Limit equilibrium methods — simplified Bishop / Fellenius
+- Bishop simplified method for circular slip surfaces
 - Slope stability chart methods (Taylor, Hoek-Bray)
 - SME Handbook — Slope Engineering chapter
 
-NOT based on IAPWS — purely geotechnical / rock mechanics.
+Geotechnical and rock mechanics methods.
 """
 import math
 
 # ---------------------------------------------------------------------------
-# Simplified Bishop factor of safety (circular slip surface)
+# Bishop simplified factor of safety (circular slip surface)
 # ---------------------------------------------------------------------------
 
 def bishop_factor_of_safety(
-    slip_radius_m: float,
-    slip_depth_m: float,
     slope_height_m: float,
     slope_angle_deg: float,
     cohesion_kPa: float,
     friction_angle_deg: float,
     unit_weight_kN_m3: float,
     pore_pressure_ratio_ru: float = 0.0,
-    num_slices: int = 10
+    slip_radius_m: float | None = None,
+    slip_center_x_m: float | None = None,
+    slip_center_y_m: float | None = None,
+    num_slices: int = 30,
+    max_iter: int = 50,
+    tol: float = 1e-4
 ) -> float:
     """
-    Simplified Bishop method for circular slip surface.
-    
-    Iterative solution for factor of safety.
-    
+    Bishop simplified method for circular slip surface.
+
+    Iterative slice-based solution. The slip circle passes through the
+    toe (0,0) and exits at the slope face or crest.
+
     Args:
-        slip_radius_m: Radius of circular slip surface, m
-        slip_depth_m: Depth of slip circle below toe, m
         slope_height_m: Slope height, m
         slope_angle_deg: Slope face angle, degrees
         cohesion_kPa: Effective cohesion, kPa
         friction_angle_deg: Effective friction angle, degrees
         unit_weight_kN_m3: Unit weight of rock/soil, kN/m³
         pore_pressure_ratio_ru: Pore pressure ratio (0 = dry, 0.3 = saturated)
+        slip_radius_m: Radius of circular slip surface, m (default 1.5*H)
+        slip_center_x_m: X-coordinate of slip circle center (default auto)
+        slip_center_y_m: Y-coordinate of slip circle center (default auto)
         num_slices: Number of vertical slices
-    
+        max_iter: Maximum Bishop iterations
+        tol: Convergence tolerance for F
+
     Returns:
         Factor of safety (F > 1.3 typically acceptable)
     """
-    if slip_radius_m <= 0 or slope_height_m <= 0:
+    H = slope_height_m
+    beta = math.radians(slope_angle_deg)
+    phi = math.radians(friction_angle_deg)
+    c = cohesion_kPa
+    gamma = unit_weight_kN_m3
+    ru = pore_pressure_ratio_ru
+
+    if H <= 0:
         return float('inf')
-    
-    phi_rad = math.radians(friction_angle_deg)
-    c = cohesion_kPa  # kPa
-    gamma = unit_weight_kN_m3  # kN/m3
-    
-    # Simplified: wedge approximation
-    # For a proper Bishop, need iterative slice-by-slice calculation.
-    # Here we use a simplified chart-based approximation for conceptual design.
-    
-    # Taylor stability number approach (simplified)
-    # Ns = c / (γ × H × F)
-    # F = c / (γ × H × Ns)
-    
-    # Stability number Ns depends on slope angle and friction angle
-    # Approximate from charts (simplified fit)
-    slope_angle = math.radians(slope_angle_deg)
-    
-    if slope_angle_deg < 10:
-        Ns_approx = 0.15
-    elif slope_angle_deg < 20:
-        Ns_approx = 0.10
-    elif slope_angle_deg < 30:
-        Ns_approx = 0.06
-    elif slope_angle_deg < 40:
-        Ns_approx = 0.04
-    elif slope_angle_deg < 50:
-        Ns_approx = 0.025
+    if beta <= 0:
+        return float('inf')
+
+    tan_beta = math.tan(beta)
+    crest_x = H / tan_beta  # x where slope reaches full height
+
+    # Determine slip circle geometry
+    if slip_radius_m is not None:
+        R = slip_radius_m
     else:
-        Ns_approx = 0.015
-    
-    # Adjust for friction angle (higher φ = lower Ns needed)
-    phi_factor = max(0.3, 1.0 - friction_angle_deg / 60.0)
-    Ns = Ns_approx * phi_factor
-    
-    # Pore pressure reduces effective stress
-    effective_factor = 1.0 - pore_pressure_ratio_ru
-    
-    F = (c * effective_factor) / (gamma * slope_height_m * Ns)
-    
-    return round(F, 2)
+        R = 1.5 * H
+
+    if slip_center_x_m is not None and slip_center_y_m is not None:
+        xc, yc = slip_center_x_m, slip_center_y_m
+    else:
+        # Position center so circle passes through toe (0,0) and
+        # extends a reasonable depth below the slope
+        # Center above and behind the slope
+        yc = 0.5 * R + 0.3 * H
+        xc_sq = R**2 - yc**2
+        if xc_sq <= 0:
+            yc = R * 0.6
+            xc_sq = R**2 - yc**2
+        xc = math.sqrt(max(0, xc_sq))
+
+    # Verify circle passes near toe: distance from center to toe ≈ R
+    toe_dist = math.sqrt(xc**2 + yc**2)
+    if abs(toe_dist - R) / R > 0.01:
+        R = toe_dist  # snap to exact toe passage
+
+    # Find where circle exits the ground surface (upper intersection)
+    # Check crest intersection: (x-xc)² + (H-yc)² = R²
+    crest_disc = R**2 - (H - yc)**2
+    if crest_disc >= 0:
+        x_exit_crest = xc + math.sqrt(crest_disc)
+    else:
+        x_exit_crest = float('inf')
+
+    # Check slope face intersection (other than toe at x=0)
+    # Solve: (x-xc)² + (x*tanβ - yc)² = R²
+    # x²(1+tan²β) - 2x(xc + yc*tanβ) + (xc²+yc²-R²) = 0
+    # Since circle passes through toe, (xc²+yc²-R²) = 0
+    A = 1 + tan_beta**2
+    B = -2 * (xc + yc * tan_beta)
+    # C = xc**2 + yc**2 - R**2 = 0 (toe circle)
+
+    x_exit_slope = B / (-A) if A > 0 else float('inf')  # non-zero root: x = -B/A
+
+    # Choose the exit point (where circle emerges from the slope)
+    if x_exit_slope > 0 and x_exit_slope <= crest_x:
+        x_exit = x_exit_slope
+    elif x_exit_crest > crest_x:
+        x_exit = x_exit_crest
+    else:
+        x_exit = crest_x
+
+    if x_exit <= 1e-6:
+        return float('inf')
+
+    # Build slices from x=0 (toe) to x=x_exit
+    dx = x_exit / num_slices
+    slices = []
+
+    for i in range(num_slices):
+        x_left = i * dx
+        x_right = (i + 1) * dx
+        x_mid = (x_left + x_right) / 2
+
+        # Ground surface height at x_mid
+        if x_mid <= crest_x:
+            y_ground = x_mid * tan_beta
+        else:
+            y_ground = H
+
+        # Circle y at x_mid — choose the arc that lies below ground
+        disc = R**2 - (x_mid - xc)**2
+        if disc <= 0:
+            continue
+        sqrt_disc = math.sqrt(disc)
+        y_upper = yc + sqrt_disc
+        y_lower = yc - sqrt_disc
+
+        # Slip surface is the higher circle point that is still <= ground
+        if y_upper <= y_ground + 1e-9:
+            y_slip = y_upper
+        else:
+            y_slip = y_lower
+
+        h = y_ground - y_slip
+        if h <= 0:
+            continue
+
+        # Base angle: angle of tangent to horizontal
+        # dy/dx = -(x-xc)/(y-yc) along the circle
+        if abs(y_slip - yc) > 1e-9:
+            dy_dx = -(x_mid - xc) / (y_slip - yc)
+        else:
+            dy_dx = 0.0
+        alpha = math.atan(dy_dx)  # positive when base slopes upward into slope
+
+        W = gamma * h * dx
+        l = dx / math.cos(alpha)  # base length
+
+        slices.append({
+            'x_mid': x_mid, 'dx': dx, 'h': h, 'alpha': alpha,
+            'W': W, 'l': l
+        })
+
+    if not slices:
+        return float('inf')
+
+    # Bishop iterative solution
+    F = 1.0
+
+    for _ in range(max_iter):
+        numerator = 0.0
+        denominator = 0.0
+
+        for s in slices:
+            W = s['W']
+            alpha = s['alpha']
+            l = s['l']
+            b = s['dx']
+
+            # Pore pressure at base
+            u = ru * gamma * s['h']
+
+            # Bishop m_alpha term
+            m_alpha = math.cos(alpha) + math.sin(alpha) * math.tan(phi) / F
+
+            if m_alpha <= 0:
+                continue  # skip slices where m_alpha <= 0 (tension crack)
+
+            # c'*b + (W - u*b)*tan(phi')  [b = slice width]
+            numerator += (c * b + (W - u * b) * math.tan(phi)) / m_alpha
+            denominator += W * math.sin(alpha)
+
+        if abs(denominator) < 1e-12:
+            return float('inf')
+
+        F_new = numerator / denominator
+
+        if F_new <= 0:
+            return float('inf')
+
+        if abs(F_new - F) < tol:
+            return round(F_new, 3)
+
+        F = F_new
+
+    return round(F, 3)
 
 
 # ---------------------------------------------------------------------------
@@ -214,8 +339,6 @@ def bench_design(
 if __name__ == "__main__":
     # Demo: Copper open pit slope
     F = bishop_factor_of_safety(
-        slip_radius_m=80,
-        slip_depth_m=30,
         slope_height_m=150,
         slope_angle_deg=42,
         cohesion_kPa=250,
@@ -223,14 +346,14 @@ if __name__ == "__main__":
         unit_weight_kN_m3=26,
         pore_pressure_ratio_ru=0.15
     )
-    
+
     print("Open-Pit Slope Stability Analysis")
     print(f"  Factor of safety: {F}")
-    
+
     status = slope_stability_status(F, 150, 42)
     print(f"  Status:           {status['status']} ({status['risk_level']} risk)")
     print(f"  Action:           {status['recommended_action']}")
-    
+
     # Bench design
     bench = bench_design(15, 65, 8, "hard_rock")
     print(f"\nBench Design:")
@@ -238,7 +361,7 @@ if __name__ == "__main__":
     print(f"  Overall slope:    {bench['overall_slope_angle_deg']}°")
     print(f"  Catch capacity:   {bench['catch_capacity_m3_per_m']:.0f} m3/m")
     print(f"  Status:           {bench['status']}")
-    
-    print("\nNOTE: Simplified Bishop method for conceptual design.")
+
+    print("\nNOTE: Bishop simplified method for conceptual design.")
     print("Detailed design requires 2D/3D numerical modeling (Slide2, FLAC, Plaxis).")
-    print("NO IAPWS standard covers slope stability.")
+    print("Slope stability per SME and Hoek-Bray methods.")

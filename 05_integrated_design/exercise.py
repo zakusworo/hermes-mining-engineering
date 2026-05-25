@@ -148,7 +148,11 @@ print(f"  Pump power: {P_slurry:.1f} kW")
 # Task 5: Slope Stability (open pit portal area)
 # ========================================================================
 print("\n[Task 5] Open-Pit Slope Stability (Portal)")
-F = ss.bishop_factor_of_safety(50, 15, 80, 38, 180, 32, 24, 0.08)
+F = ss.bishop_factor_of_safety(
+    slope_height_m=80, slope_angle_deg=38,
+    cohesion_kPa=180, friction_angle_deg=32,
+    unit_weight_kN_m3=24, pore_pressure_ratio_ru=0.08
+)
 status = ss.slope_stability_status(F, 80, 38)
 print(f"  FOS: {F}")
 print(f"  Status: {status['status']} — {status['recommended_action']}")
