@@ -1,6 +1,6 @@
-# Hermes for Mining Engineering
+# Agentic Mining Engineering
 
-Hermes Agent course for **mining engineering**, adapted from the `hermes-reservoir-engineering` workflow framework. Every exercise maps the same AI-assisted guardrail (explore-plan-code-verify-review) to real mining workflows: rock mass characterization, slope stability, ventilation design, slurry transport, dewatering, blasting vibration control, tailings dam stability, and pre-feasibility economics.
+An **agentic AI course** for **mining engineering**, compatible with Claude Code, GitHub Copilot/Codex, and other AI coding assistants. Adapted from the agentic workflow framework. Every exercise maps the same AI-assisted guardrail (explore-plan-code-verify-review) to real mining workflows: rock mass characterization, slope stability, ventilation design, slurry transport, dewatering, blasting vibration control, tailings dam stability, and pre-feasibility economics.
 
 The goal: teach mining engineers to direct AI like a disciplined technical assistant — context, constraints, units in SI, verification with tests, proven empirical libraries over hand-rolled formulas.
 
@@ -23,12 +23,12 @@ AI tools accelerate this work only when engineers demand domain context, SI unit
 
 By the end:
 
-- use Hermes explore-plan-code-verify on mining scripts
+- use explore-plan-code-verify on mining scripts with any AI assistant
 - write prompts with file, function, SI units, and expected stress-strain relationship
-- ask Hermes for tests: known Hoek-Brown values, monotonicity, physical bounds
-- create `CLAUDE.md` / `AGENTS.md` with mining standards
-- package repeatable workflows as Hermes skills
-- use parallel fanout for sensitivity studies (gold price, slope angle, powder factor)
+- ask your AI assistant for tests: known Hoek-Brown values, monotonicity, physical bounds
+- create `STANDARDS.md` / `AGENTS.md` with mining standards
+- package repeatable workflows as agent-agnostic skills
+- use parallel analysis for sensitivity studies (gold price, slope angle, powder factor)
 
 ## Course Structure (15 Exercises)
 
@@ -42,12 +42,12 @@ Each exercise is a numbered folder with:
 | 1 | Rock Mass + Slope Stability | RQD, RMR, GSI, Hoek-Brown, Bishop FOS | explore codebase before editing |
 | 2 | Ventilation + Heat Stress | Psychrometrics, WBGT, fan power, work/rest | specific context (file, function, test) |
 | 3 | Slurry + Dewatering | Bingham plastic, pipeline ΔP, NPSH, pump power | verify with tests before trusting |
-| 4 | Blast + Vibration | USBM PPV, blast design, regulatory compliance | CLAUDE.md standards |
+| 4 | Blast + Vibration | USBM PPV, blast design, regulatory compliance | STANDARDS.md standards |
 | 5 | Integrated Mine Design | ALL 6 modules combined | multi-module workflow |
 | 6 | Groundwater Inflow | Theim equation, drawdown, cost | subagent review for risky calculations |
 | 7 | Rock Mass Comparison | Granite vs shale, support selection | CLI workflow for data inspection |
 | 8 | Pump Selection | System curve, operating point, VSD savings | MCP tool integration |
-| 9 | Slope + Groundwater | FOS vs pore pressure, sensitivity | parallel fanout for parameter sweeps |
+| 9 | Slope + Groundwater | FOS vs pore pressure, sensitivity | parallel analysis for parameter sweeps |
 | 10 | Bench Domains | Inter-ramp vs overall slope, 3 domains | project memory (save conventions) |
 | 11 | Blast Fragmentation | Powder factor, digging rate, cost-benefit | skills packaging |
 | 12 | Subsidence | UK NCB empirical, angle of draw, monitoring | review subagent for empirical methods |
@@ -75,13 +75,22 @@ PYTHONPATH=src pytest tests/ -v
 python3 scripts/generate_course_figures.py
 ```
 
-## Hermes Agent Usage
+## Agentic AI Usage
 
-```text
-/hermes -w                        # isolated worktree
-/skill mining-engineering         # load mining skill
-/init                             # reload CLAUDE.md
+This course works with any agentic AI coding assistant:
+
+**Claude Code:**
+```bash
+claude /init                      # reload STANDARDS.md
 ```
+
+**GitHub Copilot / Codex:**
+```bash
+# Use the inline chat with context from STANDARDS.md
+```
+
+**Other Agents:**
+Load the `STANDARDS.md` and `AGENTS.md` files as context before starting exercises.
 
 ## Agentic AI Workflow
 
@@ -91,15 +100,16 @@ Each exercise follows the same guardrail:
 Explore → Plan → Code → Verify → Review
 ```
 
-1. **Explore**: Hermes reads code, data, and tests before editing
-2. **Plan**: Hermes writes a brief plan before modifying code
+1. **Explore**: AI reads code, data, and tests before editing
+2. **Plan**: AI writes a brief plan before modifying code
 3. **Code**: Implement with tests first (TDD)
 4. **Verify**: Run tests and check physical plausibility
 5. **Review**: Send risky code to subagent reviewer (AGENTS.md)
 
 ## Standards Documented
 
-- `CLAUDE.md` — Mining engineering standards: units, Hoek-Brown, Bishop, USBM, ASHRAE, SME
+- `STANDARDS.md` — Mining engineering standards: units, Hoek-Brown, Bishop, USBM, ASHRAE, SME (agent-agnostic)
+- `CLAUDE.md` — Legacy Claude-specific format (kept for backward compatibility)
 - `AGENTS.md` — Reviewer checklist: unit consistency, FOS thresholds, PPV limits, physical bounds
 - `BEGINNERS_GUIDE.txt` — Panduan awam dalam Bahasa Indonesia
 

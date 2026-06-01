@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-mining-engineering"
+version = "0.1.0"
+description = "Agentic AI course for mining engineering - rock mechanics, slope stability, ventilation, slurry transport, dewatering, blasting"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Zulfikar Aji Kusworo"}
+]
+keywords = ["mining", "engineering", "rock-mechanics", "slope-stability", "ventilation", "blasting", "agentic-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Education",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "matplotlib>=3.5"]
+
+[project.urls]
+Homepage = "https://github.com/zakusworo/agentic-mining-engineering"
+Repository = "https://github.com/zakusworo/agentic-mining-engineering"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

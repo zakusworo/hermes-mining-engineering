@@ -31,8 +31,8 @@ upstream_angle = math.degrees(math.atan(1/3))
 downstream_angle = math.degrees(math.atan(1/2.5))
 
 print(f"\n[Task 1] Static FOS")
-F_upstream = ss.bishop_factor_of_safety(60, 20, height, upstream_angle, 25, 22, 18, 0.25)
-F_downstream = ss.bishop_factor_of_safety(60, 20, height, downstream_angle, 25, 22, 18, 0.25)
+F_upstream = ss.bishop_factor_of_safety(height, upstream_angle, 25, 22, 18, 0.25)
+F_downstream = ss.bishop_factor_of_safety(height, downstream_angle, 25, 22, 18, 0.25)
 
 print(f"  Upstream FOS:   {F_upstream:.2f}")
 print(f"  Downstream FOS: {F_downstream:.2f}")
@@ -44,8 +44,8 @@ for name, F in [("upstream", F_upstream), ("downstream", F_downstream)]:
 print("\n[Task 2] Seismic FOS (pseudo-static)")
 # Reduce cohesion by 30% under seismic
 kh = 0.15  # horizontal seismic coefficient
-F_seismic_up = ss.bishop_factor_of_safety(60, 20, height, upstream_angle, 25*0.7, 22, 18, 0.25)
-F_seismic_down = ss.bishop_factor_of_safety(60, 20, height, downstream_angle, 25*0.7, 22, 18, 0.25)
+F_seismic_up = ss.bishop_factor_of_safety(height, upstream_angle, 25*0.7, 22, 18, 0.25)
+F_seismic_down = ss.bishop_factor_of_safety(height, downstream_angle, 25*0.7, 22, 18, 0.25)
 print(f"  Seismic upstream:   {F_seismic_up:.2f}")
 print(f"  Seismic downstream: {F_seismic_down:.2f}")
 

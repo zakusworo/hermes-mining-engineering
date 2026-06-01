@@ -1,17 +1,17 @@
 # Exercise 1: Rock Mass Characterization and Slope Stability
 
 ## Goal
-Teach Hermes to explore drill core data and rock mass classification before designing slopes.
+Teach AI assistant to explore drill core data and rock mass classification before designing slopes.
 
 ## Engineering Focus
 Open-pit granite mine. Engineers classify rock mass (RQD, RMR, GSI), predict Hoek-Brown strength, then check slope stability with Bishop simplified method.
 
-## Hermes Commands
-```text
-/hermes -w
-/skill mining-engineering
-/init
+## Agentic AI Commands (Claude Code example)
+```bash
+claude /init                    # Load standards
 ```
+
+For other AI assistants, load STANDARDS.md as context before starting.
 
 ## Before Prompt (vague)
 ```

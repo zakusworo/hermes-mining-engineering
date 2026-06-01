@@ -1,4 +1,4 @@
-"""Hermes Mining Engineering — pure mining engineering calculations.
+"""Agentic Mining Engineering — pure mining engineering calculations.
 
 NO IAPWS dependency. All modules use empirical, industry-standard methods:
 - Hoek-Brown, RMR, GSI for rock mechanics
@@ -13,5 +13,6 @@ from . import slurry
 from . import dewatering
 from . import slope_stability
 from . import blasting
+from . import economics
 
 __version__ = "0.1.0"

@@ -34,8 +34,8 @@ A = 125000.0
 
 inflow = dw.groundwater_inflow_empirical(k, thickness, drawdown, R, A)
 print(f"\n[Task 1] Groundwater Inflow")
-print(f"  Theim inflow:     {inflow:.1f} m³/h")
-print(f"  Daily inflow:     {inflow*24:.0f} m³/day")
+print(f"  Theim inflow:     {inflow:.1f} m³/day")
+print(f"  Hourly inflow:    {inflow/24:.0f} m³/h")
 print(f"  Annual inflow:    {inflow*24*365/1e6:.2f} million m³/year")
 
 head = drawdown + 15.0  # lift + discharge head

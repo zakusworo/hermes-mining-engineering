@@ -33,7 +33,7 @@ rocks = {
 
 for name, r in rocks.items():
     print(f"\n[{name}]")
-    params = rm.hoek_brown_parameters(r["gsi"], r["mi"], r["D"])
+    params = rm.hoek_brown_parameters(r["gsi"], r["mi"], r["D"], r["ucs"])
     mc = rm.mohr_coulomb_from_hoek_brown(params['mb'], params['s'], params['a'], r['ucs'], r['ucs']/4)
     
     print(f"  mb={params['mb']:.3f}, s={params['s']:.4f}, a={params['a']}")
